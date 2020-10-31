@@ -1,5 +1,5 @@
  ## Space invaders version Star Wars
- ![](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQFThN4hxDrZsK1gdGDoNhkKXhrWjhkaqudyA&usqp=CAU)
+ ![](https://w7.pngwing.com/pngs/636/21/png-transparent-anakin-skywalker-stormtrooper-star-wars-logo-war-text-logo-war.png)
 
 ## Descripción
 
