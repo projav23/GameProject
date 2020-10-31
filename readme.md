@@ -5,21 +5,22 @@
 
 El juego está basado en el mitico Space Invaders pero con tematica de Star Wars. El objetivo del juego es destruir toda la flota enemiga y el boss final (Darth Vader) o permanecer . El jugador debe evitar colisionar con las naves enemigas, que estás llegen a tu al final de su recorrido sin ser destruidas o acabar destruido por un blaster enemigo.
 
-MVP
+ ## MVP
 
 La nave se podrá mover en el eje Y a lo largo de su ancho y en el X estará limitado. El juego termina cuando la nave es destruida (quedarse sin vidas). El juego se gana si se llega a una puntuacion determinada. Cada destruccion de una nave rival te da un punto.
 
-Estructura de datos
-
-1.index.html
-2.main.js
-3.game.js
-4.space.js
-5.player.js
-6.enemies.js
+## Estructura de datos
 
 1. index.html
 2. main.js
+3. game.js
+4. space.js
+5. player.js
+6. enemies.js
+
+### index.html
+
+### main.js
    buildDom
    createStartScreen/removeStartScreem
    createGameScreen/removeGameScreem
@@ -28,8 +29,10 @@ Estructura de datos
    startGame/endGame
    Shoots
    MoveControls
-3. game.js
-   propiedas class Game
+
+### game.js
+
+   #### Propiedas 
    canvas
    ctx
    player
@@ -39,7 +42,8 @@ Estructura de datos
    timeScore
    dificultat
    pause
-   Metodos
+
+   #### Metodos
    StartLoop
    CheckCollision
    updateCanvas
@@ -48,8 +52,10 @@ Estructura de datos
    GameOver
    Dificultat
    BotonPause
-4. space.js
-   Propiedades
+
+### space.js
+
+   #### Propiedades
    canvas
    ctx
    width
@@ -57,10 +63,13 @@ Estructura de datos
    positionX
    positionY
    img
-   Metodos
+
+   #### Metodos
    drawSpace
-5. player.js
-   propiedades
+
+### player.js
+
+   #### Propiedades
    canvas
    ctx
    width
@@ -71,7 +80,8 @@ Estructura de datos
    direction
    speed
    lives
-   Metodos
+
+   #### Metodos
    update
    draw
    setDirection
@@ -79,8 +89,10 @@ Estructura de datos
    checkCollsionEnenmy
    loseLive
    drawShoots
-6. enemy.js
-   Propiedades
+
+### enemy.js
+
+   #### Propiedades
    canvas
    ctx
    img
@@ -90,34 +102,35 @@ Estructura de datos
    positionY
    speed
    direction
-   Metodos
+
+   #### Metodos
    update
    drawEnemy
    setDirection
    drawShoot
 
-States and States Transition
+## States and States Transition
 
-startScreen
+### startScreen
 Empieza el juego
 Ir a la pantalla de juego si le das al boton start
 puedes elegir el nivel de dificultat
 
-gameScreen
+### gameScreen
 La partida continua siempre que tengas mas de 0 vidas
 Si X naves enemigas llegan al otro lado sin ser destruidas la partida termina o si te quedas sin vidas
 Si llegas a la puntuacion ganas la partida
 
-gameoverScreen
+### gameoverScreen
 Muestra el mensaje de gameOver y la opción de volver a jugar
 vuelve a la pantalla de juego si pulsas sobre volver a jugar
 
-winScreen
+### winScreen
 muestra que has ganado, la puntuacion total, el tiempo en conseguirlo y un boton de volver a jugar y otro de menu
 Vuelve a la pantalla de startScreen si pulsas sobre menu
 vuelve a la pantalla de juego si pulsas sobre jugar otra vez
 
-Tasks
+## Tasks
 Crear el repositorio en GitHub
 Crear y conectar todos los ficheros: game.js, main.js, player.js, space.js etc...
 
@@ -152,7 +165,7 @@ pausar juego
 
 Añadir audios, imagenes, fuentes, animaciones...
 
-Backlog:
+## Backlog:
 
 Los enemigos tambien pueden disparar cada x tiempo
 Atravesar paredes, puedes pasar de arriba a abajo y viceversa
