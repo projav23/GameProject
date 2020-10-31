@@ -1,0 +1,19 @@
+.splash-screen {
+  /* pantalla start */
+  background-image: url("/images/StartScreen.png");
+}
+
+.game-screen{
+  /* pantalla juego */
+  background-image: url("/images/GameScreen.jpeg");
+}
+
+.game-over{
+  /* pantalla gameover */
+  background-image: url("/images/GameoverScreen.jpg");
+}
+
+.game-win{
+  /* pantalla win */
+  background-image: url("/images/winScreen.jpg");
+}
