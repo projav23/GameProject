@@ -1,9 +1,9 @@
  ## Space invaders version Star Wars
- ![](https://w7.pngwing.com/pngs/980/467/png-transparent-space-invaders-video-game-arcade-game-angry-birds-space-logo-space-invaders-game-text-video-game.png)
+ ![](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQFThN4hxDrZsK1gdGDoNhkKXhrWjhkaqudyA&usqp=CAU)
 
 ## Descripción
 
-El juego está basado en el mitico Space Invaders pero con tematica de Star Wars. El objetivo del juego es destruir toda la flota enemiga y el boss final (Darth Vader) o permanecer . El jugador debe evitar colisionar con las naves enemigas, que estás llegen a tu al final de su recorrido sin ser destruidas o acabar destruido por un blaster enemigo.
+El juego está basado en el mitico **Space Invaders** pero con tematica de **Star Wars**. El objetivo del juego es destruir toda la flota enemiga. El jugador debe evitar colisionar con las naves enemigas, que estás llegen al final de su recorrido sin ser destruidas o acabar destruido por un blaster enemigo.
 
  ## MVP
 
@@ -134,22 +134,22 @@ vuelve a la pantalla de juego si pulsas sobre jugar otra vez
 Crear el repositorio en GitHub
 Crear y conectar todos los ficheros: game.js, main.js, player.js, space.js etc...
 
-main.js:
+**main.js:**
 Crear el DOM en
 Crear las 3 pantallas en
 Crear las transiciones entre pantallas en
 
-game.js:
+**game.js:**
 Crear game constructor
 Crear loop
 
-player.js:
+**player.js:**
 crear player constructor
 
-enemy.js:
+**enemy.js:**
 Crear enemigo constructor
 
-game.js:
+**game.js:**
 Draw enemies
 Move enemies
 Move player
@@ -157,18 +157,18 @@ Check collisions
 Check game result
 Print score
 
-main.js:
+**main.js:**
 Create ScoreBoard
 
-game.js:
+**game.js:**
 pausar juego
 
 Añadir audios, imagenes, fuentes, animaciones...
 
 ## Backlog:
 
-Los enemigos tambien pueden disparar cada x tiempo
-Atravesar paredes, puedes pasar de arriba a abajo y viceversa
-Sonidos del espacio (cuando disparas, pierdes o ganas)
-Pausar el juego
-Cambiar de dificultat
+Los enemigos tambien pueden disparar cada x tiempo.
+Atravesar paredes, puedes pasar de arriba a abajo y viceversa.
+Sonidos del espacio (cuando disparas, pierdes o ganas).
+Pausar el juego.
+Cambiar de dificultat.
