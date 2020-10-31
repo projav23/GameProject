@@ -10,10 +10,16 @@ const main = () => {
     buildDom(`
         <section class="splash-screen">
             <h1>Space Invaders</h1>
-            <button>Start</button>
+            <div class="wrapper">
+              <a class="buttonStart">Start</a>
+            </div>
+            <div class="codeBy"><p>Code by Javier Gómez</p></div>
         </section>
         `);
-    let startButton = document.querySelector("button");
+    // let body = document.querySelector("body")
+    // body.style.backgroundColor = "black";
+  
+    let startButton = document.querySelector(".buttonStart");
     startButton.addEventListener("click", buildGameScreen);
   };
 
@@ -23,7 +29,7 @@ const main = () => {
             <canvas></canvas>
         </section>
         `);
-
+    document.querySelector(".game-screen").style.height = "800px";
     let width = document.querySelector(".game-screen").offsetWidth;
     let height = document.querySelector(".game-screen").offsetHeight;
     let canvas = document.querySelector("canvas");
@@ -32,8 +38,9 @@ const main = () => {
 
     const game = new Game(canvas);
     game.gameOverCallback(buildGameOver);
-
+    console.log("entrar al loop")
     game.startLoop();
+    console.log("despues loop")
 
     const setPlayerDirection = (event) => {
       if (event.code === "ArrowUp") {

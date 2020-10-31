@@ -1,19 +1,107 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --bg: #1a1e24;
+  --color: #eee;
+  --font: Montserrat, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.wrapper {
+  padding: 1.5rem 0;
+  filter: url('#goo');
+}
+
+.buttonStart {
+  display: inline-block;
+  text-align: center;
+  background: var(--color);
+  color: var(--bg);
+  font-weight: bold;
+  padding: 1.18em 1.32em 1.03em;
+  line-height: 1;
+  border-radius: 1em;
+  position: relative;
+  min-width: 8.23em;
+  text-decoration: none;
+  font-family: var(--font);
+  font-size: 1.25rem;
+  margin-left: 43%;
+}
+
+.buttonStart:before,
+.buttonStart:after {
+  width: 4.4em;
+  height: 2.95em;
+  position: absolute;
+  content: "";
+  display: inline-block;
+  background: var(--color);
+  border-radius: 50%;
+  transition: transform 1s ease;
+  transform: scale(0);
+  z-index: -1;
+}
+
+.buttonStart:before {
+  top: -25%;
+  left: 20%;
+}
+
+.buttonStart:after {
+  bottom: -25%;
+  right: 20%;
+}
+
+.buttonStart:hover:before,
+.buttonStart:hover:after {
+  transform: none;
+}
+
+.codeBy {
+  position: relative;
+  color: gray;
+  margin-top: 20%;
+  margin-left: 2%;
+}
+
+
+  
+
+
 .splash-screen {
   /* pantalla start */
-  background-image: url("/images/StartScreen.png");
+  /* background-image: url("../images/StartScreen.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  */
+  height: 600px; 
+  background-color: black;
 }
 
-.game-screen{
-  /* pantalla juego */
-  background-image: url("/images/GameScreen.jpeg");
+.splash-screen  h1{
+  color: white;
+  font-size: 6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+}
+.splash-screen button {
+  margin-left: 45%;
+  width: 150px;
+  color: white;
+  background-color: black;
+  border: none;
+  font-size: 3em;
 }
 
-.game-over{
-  /* pantalla gameover */
-  background-image: url("/images/GameoverScreen.jpg");
-}
 
-.game-win{
-  /* pantalla win */
-  background-image: url("/images/winScreen.jpg");
-}
