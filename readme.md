@@ -1,6 +1,6 @@
 Space invaders version Star Wars
 
-Descripción
+## Descripción
 
 El juego está basado en el mitico Space Invaders pero con tematica de Star Wars. El objetivo del juego es destruir toda la flota enemiga y el boss final (Darth Vader) o permanecer . El jugador debe evitar colisionar con las naves enemigas, que estás llegen a tu al final de su recorrido sin ser destruidas o acabar destruido por un blaster enemigo.
 
