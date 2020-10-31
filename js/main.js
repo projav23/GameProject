@@ -30,6 +30,9 @@ const main = () => {
     canvas.setAttribute("width", width);
     canvas.setAttribute("height", height);
 
+    const game = new Game(canvas);
+    game.gameOverCallback(buildGameOver);
+
     game.startLoop();
 
     const setPlayerDirection = (event) => {
@@ -39,10 +42,8 @@ const main = () => {
         game.player.setDirection(5);
       }
     };
-
     document.addEventListener("keydown", setPlayerDirection);
-
-  }
+  };
 
   let buildGameOver = () => {
     buildDom(`
@@ -58,7 +59,7 @@ const main = () => {
 
     restartBtn.addEventListener("click", buildGameScreen)
     menuBtn.addEventListener("click", buildSplashScreen)
-  }
+  };
 
   let buildWin = () => {
     buildDom(`
@@ -70,7 +71,8 @@ const main = () => {
 
     let btnPlayAgain = document.querySelector(".playagain")
     btnPlayAgain.addEventListener("click", buildGameScreen)
-  }
+  };
+  buildSplashScreen();
 }
 
 window.addEventListener("load", main)
