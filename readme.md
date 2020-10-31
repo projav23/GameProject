@@ -21,93 +21,93 @@
 ### index.html
 
 ### main.js
-   buildDom
-   createStartScreen/removeStartScreem
-   createGameScreen/removeGameScreem
-   createGameOverScreen/removeGameOverScreen
-   createWinScreen/removeWinScreen
-   startGame/endGame
-   Shoots
-   MoveControls
+   - buildDom
+   - createStartScreen/removeStartScreem
+   - createGameScreen/removeGameScreem
+   - createGameOverScreen/removeGameOverScreen
+   - createWinScreen/removeWinScreen
+   - startGame/endGame
+   - Shoots
+   - MoveControls
 
 ### game.js
 
    #### Propiedas 
-   canvas
-   ctx
-   player
-   space
-   enemies
-   gameOver
-   timeScore
-   dificultat
-   pause
+   - canvas
+   - ctx
+   - player
+   - space
+   - enemies
+   - gameOver
+   - timeScore
+   - dificultat
+   - pause
 
    #### Metodos
-   StartLoop
-   CheckCollision
-   updateCanvas
-   clearCanvas
-   DrawCanvas
-   GameOver
-   Dificultat
-   BotonPause
+   - StartLoop
+   - CheckCollision
+   - updateCanvas
+   - clearCanvas
+   - DrawCanvas
+   - GameOver
+   - Dificultat
+   - BotonPause
 
 ### space.js
 
    #### Propiedades
-   canvas
-   ctx
-   width
-   height
-   positionX
-   positionY
-   img
+   - canvas
+   - ctx
+   - width
+   - height
+   - positionX
+   - positionY
+   - img
 
    #### Metodos
-   drawSpace
+   - drawSpace
 
 ### player.js
 
    #### Propiedades
-   canvas
-   ctx
-   width
-   height
-   positionX
-   positionY
-   img
-   direction
-   speed
-   lives
+   - canvas
+   - ctx
+   - width
+   - height
+   - positionX
+   - positionY
+   - img
+   - direction
+   - speed
+   - lives
 
    #### Metodos
-   update
-   draw
-   setDirection
-   checkScreen
-   checkCollsionEnenmy
-   loseLive
-   drawShoots
+   - update
+   - draw
+   - setDirection
+   - checkScreen
+   - checkCollsionEnenmy
+   - loseLive
+   - drawShoots
 
 ### enemy.js
 
    #### Propiedades
-   canvas
-   ctx
-   img
-   width
-   height
-   positionX
-   positionY
-   speed
-   direction
+   - canvas
+   - ctx
+   - img
+   - width
+   - height
+   - positionX
+   - positionY
+   - speed
+   - direction
 
    #### Metodos
-   update
-   drawEnemy
-   setDirection
-   drawShoot
+   - update
+   - drawEnemy
+   - setDirection
+   - drawShoot
 
 ## States and States Transition
 
