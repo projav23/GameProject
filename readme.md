@@ -1,5 +1,5 @@
  ## Space invaders version Star Wars
- ![](https://w7.pngwing.com/pngs/636/21/png-transparent-anakin-skywalker-stormtrooper-star-wars-logo-war-text-logo-war.png)
+ ![](https://i.pinimg.com/originals/6b/bc/d9/6bbcd95e1f751a22c7bfa6928823e4ee.jpg)
 
 ## Descripción
 
@@ -18,8 +18,7 @@
 5. player.js
 6. enemies.js
 
-### index.html
-
+### Index.html
 ### main.js
    - buildDom
    - createStartScreen/removeStartScreem
@@ -30,9 +29,8 @@
    - Shoots
    - MoveControls
 
-### game.js
-
-   #### Propiedas 
+### Game.js
+   #### Propiedades 
    - canvas
    - ctx
    - player
@@ -53,8 +51,7 @@
    - Dificultat
    - BotonPause
 
-### space.js
-
+### Space.js
    #### Propiedades
    - canvas
    - ctx
@@ -67,8 +64,7 @@
    #### Metodos
    - drawSpace
 
-### player.js
-
+### Player.js
    #### Propiedades
    - canvas
    - ctx
@@ -90,8 +86,7 @@
    - loseLive
    - drawShoots
 
-### enemy.js
-
+### Enemy.js
    #### Propiedades
    - canvas
    - ctx
@@ -111,21 +106,21 @@
 
 ## States and States Transition
 
-### startScreen
+### StartScreen
 - Empieza el juego
 - Ir a la pantalla de juego si le das al boton start
 - puedes elegir el nivel de dificultat
 
-### gameScreen
+### GameScreen
 - La partida continua siempre que tengas mas de 0 vidas
 - Si X naves enemigas llegan al otro lado sin ser destruidas la partida termina o si te quedas sin vidas
 - Si llegas a la puntuacion ganas la partida
 
-### gameoverScreen
+### GameoverScreen
 - Muestra el mensaje de gameOver y la opción de volver a jugar
 - vuelve a la pantalla de juego si pulsas sobre volver a jugar
 
-### winScreen
+### WinScreen
 - muestra que has ganado, la puntuacion total, el tiempo en conseguirlo y un boton de volver a jugar y otro de menu
 - Vuelve a la pantalla de startScreen si pulsas sobre menu
 - vuelve a la pantalla de juego si pulsas sobre jugar otra vez
