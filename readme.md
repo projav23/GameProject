@@ -1,5 +1,5 @@
  ## Space invaders version Star Wars
- ![](https://i.pinimg.com/originals/6b/bc/d9/6bbcd95e1f751a22c7bfa6928823e4ee.jpg)
+ ![](https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSW9DRz4vIFvicGo98Fno_J647JCrejNMAEgg&usqp=CAU)
 
 ## Descripción
 
