@@ -8,6 +8,8 @@ html {
 body {
   margin: 0;
   padding: 0;
+  width: 100%;
+  height: 790px;
 }
 :root {
   --bg: #1a1e24;
@@ -83,7 +85,8 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   */
-  height: 600px; 
+  height: 790px; 
+  width: 100%;
   background-color: black;
 }
 
@@ -105,3 +108,25 @@ body {
 }
 
 
+.game-over {
+  height: 790px; 
+  width: 100%;
+  background-color: black;
+  color: white;
+}
+.game-over h1 {
+  color: white;
+  font-size: 6em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0;
+}
+.restart{
+  margin-left: 30%;
+  width: 150px;
+  color: white;
+  background-color: black;
+  border: none;
+  font-size: 3em;
+}

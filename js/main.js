@@ -29,7 +29,7 @@ const main = () => {
             <canvas></canvas>
         </section>
         `);
-    document.querySelector(".game-screen").style.height = "800px";
+    document.querySelector(".game-screen").style.height = "790px";
     let width = document.querySelector(".game-screen").offsetWidth;
     let height = document.querySelector(".game-screen").offsetHeight;
     let canvas = document.querySelector("canvas");
@@ -38,18 +38,27 @@ const main = () => {
 
     const game = new Game(canvas);
     game.gameOverCallback(buildGameOver);
-    console.log("entrar al loop")
+    
     game.startLoop();
-    console.log("despues loop")
+    
 
     const setPlayerDirection = (event) => {
       if (event.code === "ArrowUp") {
-        game.player.setDirection(-5);
+        console.log("Mover")
+        game.player.setDirection(-20);
+        game.player.update()
       } else if (event.code === "ArrowDown") {
-        game.player.setDirection(5);
-      }
+        game.player.setDirection(20);
+        game.player.update()
+      } 
     };
+    const createBulletPlayer = (event) => {
+      if (event.code === "Space"){
+        game.bulletOn = true;
+      }
+    }
     document.addEventListener("keydown", setPlayerDirection);
+    document.addEventListener("keydown", createBulletPlayer);
   };
 
   let buildGameOver = () => {
@@ -68,17 +77,17 @@ const main = () => {
     menuBtn.addEventListener("click", buildSplashScreen)
   };
 
-  let buildWin = () => {
-    buildDom(`
-    <section class="game-win">
-        <h1>Has derrota al imperio</h1>
-        <button class ="playagain">Play Again</button>
-    </section>
-    `);
+  // let buildWin = () => {
+  //   buildDom(`
+  //   <section class="game-win">
+  //       <h1>Has derrota al imperio</h1>
+  //       <button class ="playagain">Play Again</button>
+  //   </section>
+  //   `);
 
-    let btnPlayAgain = document.querySelector(".playagain")
-    btnPlayAgain.addEventListener("click", buildGameScreen)
-  };
+  //   let btnPlayAgain = document.querySelector(".playagain")
+  //   btnPlayAgain.addEventListener("click", buildGameScreen)
+  // };
   buildSplashScreen();
 }
 
