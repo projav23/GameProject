@@ -3,11 +3,11 @@
 
 ## Descripción
 
-- El juego está basado en el mitico **Space Invaders** pero con tematica de **Star Wars**. El objetivo del juego es destruir toda la flota enemiga. El jugador debe evitar colisionar con las naves enemigas, que estás llegen al final de su recorrido sin ser destruidas o acabar destruido por un blaster enemigo.
+- El juego está basado en el mitico **Space Invaders** pero con tematica de **Star Wars**. El objetivo del juego es destruir el máximo numero de naves enemigas. El jugador veré llegar su final si colisiona 3 veces con una nave enemiga o acaba destruido por un laser del enemigo. 
 
  ## MVP
 
-- La nave se podrá mover en el eje Y a lo largo de su ancho y en el X estará limitado. El juego termina cuando la nave es destruida (quedarse sin vidas). El juego se gana si se llega a una puntuacion determinada. Cada destruccion de una nave rival te da un punto.
+- La nave se podrá mover en el eje Y y X a lo largo de su ancho. El juego termina cuando la nave es destruida el jugador se queda sin vidas por colisiones con naves o si es destruido por un laser. Cada nave enemiga son 25 puntos. Debes intentar conseguir el máximo de puntación.
 
 ## Estructura de datos
 
@@ -156,7 +156,6 @@
 - Create ScoreBoard
 
 **game.js:**
-- Pausar juego
 - Añadir audios, imagenes, fuentes, animaciones...
 
 ## Backlog:

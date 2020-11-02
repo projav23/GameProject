@@ -16,7 +16,7 @@ class Bullet {
   }
   drawBullet(){
     let imgBullet = new Image();
-    imgBullet.src = "images/laserchulo.png"
+    imgBullet.src = "images/laserchuloverde.png"
     this.ctx.drawImage(imgBullet, this.x, this.y - this.height/2, this.width, this.height)
   }
   checkCollisionEnemy(enemy){
@@ -25,7 +25,10 @@ class Bullet {
     const collideTop = this.y + this.height / 2 > enemy.y;
     const collideBottom = this.y - this.height / 2 < enemy.y + enemy.height;
     if (collideRight && collideLeft && collideTop && collideBottom) {
+      let audio = new Audio("sounds/003576076_prev.mp3");
+      audio.play();
       return true;
+      
     }
     return false;
     

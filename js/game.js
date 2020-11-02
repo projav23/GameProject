@@ -86,8 +86,8 @@ class Game {
         if (this.player.lives === 0) {
           this.isGameOver = true;
           console.log(this.points)
+          this.onGameOver(this.points);
           this.points = 0;
-          this.onGameOver();
         }
       }
     });

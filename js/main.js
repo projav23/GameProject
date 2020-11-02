@@ -6,11 +6,8 @@ const main = () => {
     const main = document.querySelector("main");
     main.innerHTML = html;
   };
-
   let buildSplashScreen = () => {
 buildDom(`
-
-
 <h1>STAR WARS<sub>IronHack Wars</sub></h1>
 
 <div id="titles">
@@ -60,7 +57,6 @@ buildDom(`
     //     `);
     // let body = document.querySelector("body")
     // body.style.backgroundColor = "black";
-  
     let startButton = document.querySelector(".button");
     startButton.addEventListener("click", buildGameScreen);
   };
@@ -106,6 +102,8 @@ buildDom(`
     const createBulletPlayer = (event) => {
       if (event.code === "Space"){
         game.bulletOn = true;
+        let audio = new Audio("sounds/007132157_prev.mp3");
+        audio.play();
       }
     }
     document.addEventListener("keydown", setPlayerDirectionY);
@@ -113,10 +111,12 @@ buildDom(`
     document.addEventListener("keydown", createBulletPlayer);
   };
 
-  let buildGameOver = () => {
+  let buildGameOver = (score) => {
     buildDom(`
             <section class="game-over">
-            <div class="finalGame">Game Over</div>
+
+            <div class="finalGame">Game Over
+            </div>
             <div class="container">
             <div class="restart">
               <a href="#">Restart</a>
@@ -125,10 +125,11 @@ buildDom(`
               <a href="#">Menu</a>
             </div>
             </div>
-            <div>Your score has:</div>
+            <div class="score">Your score: ${score}</div>
             </section>
             `);
-
+    document.body.style.backgroundImage = "url(images/rompeDaver.gif)"
+    document.body.style.backgroundSize = "cover"
     let restartBtn = document.querySelector(".restart");
     let menuBtn = document.querySelector(".menu");
 
