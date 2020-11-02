@@ -34,7 +34,6 @@ class Game {
       if (this.bulletOn){
         this.bullets.push(new Bullet(this.canvas, (this.player.x + this.player.width), (this.player.y + this.player.height/2)))
         this.bulletOn = false;
-        console.log(this.bullets)
       }
       this.checkAllCollisions();
       this.updateCanvas();
@@ -65,6 +64,10 @@ class Game {
   drawCanvas(){
     //console.log("draw")
     this.space.drawSpace()
+    this.ctx.fillStyle = 'orange';
+    this.ctx.font = '30px Arial';
+    this.ctx.fillText(`Score: ${this.points}`,this.canvas.width -200, this.canvas.height -10);
+    this.ctx.fillText(`Lives: ${this.player.lives}`,this.canvas.width -400, this.canvas.height -10);
     this.player.drawPlayer()
     this.bullets.forEach((bullet)=>{
       bullet.drawBullet();
@@ -82,6 +85,8 @@ class Game {
         this.enemies.splice(index, 1);
         if (this.player.lives === 0) {
           this.isGameOver = true;
+          console.log(this.points)
+          this.points = 0;
           this.onGameOver();
         }
       }

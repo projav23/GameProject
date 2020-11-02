@@ -1,5 +1,6 @@
 "use-strict"
 
+
 const main = () => {
   const buildDom = (html) => {
     const main = document.querySelector("main");
@@ -113,9 +114,10 @@ buildDom(`
   };
 
   let buildGameOver = () => {
+    
     buildDom(`
             <section class="game-over">
-            <div></div>
+            <div class="finalGame">Game Over</div>
             <div>
             <button class="restart">
               <a href="#">Restart</a>
@@ -124,6 +126,7 @@ buildDom(`
               <a href="#">Menu</a>
             </button>
             </div>
+            <div>Your score has: ${game.points}</div>
             </section>
             `);
 

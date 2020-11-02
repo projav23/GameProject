@@ -30,7 +30,7 @@ main{
   display: flex;
   justify-content: center;
   margin-top: 25%;
-  animation: boton 1s ease-out;
+  animation: boton 27s ease-out;
 }
 @keyframes boton {
   0% { opacity: 0; }
@@ -190,7 +190,7 @@ main{
  h1
  {
    position: absolute;
-   width: 2.6em;
+   width: 3em;
    left: 50%;
    top: 10%;
    font-size: 10em;
@@ -344,7 +344,7 @@ main{
   position:relative;
   /* display: flex; */
   justify-content: center;
-  margin-top: 25%;
+  margin-top: 5%;
   margin-left: 35%;
   /* animation: boton 27s ease-out; */
 }
@@ -408,14 +408,10 @@ main{
   position:relative;
   /* display: flex; */
   justify-content: center;
-  margin-top: 25%;
+  margin-top: 5%;
   /* animation: boton 1s ease-out; */
 }
-@keyframes boton {
-  0% { opacity: 0; }
-  90% { opacity: 0; }
-  100% { opacity: 1; }
-}
+
 
 .menu a{
   color:#ff6;
@@ -452,7 +448,7 @@ main{
   box-shadow:inset 0 1px 0 black, inset 0 -3px 0 black;
 }
 
-.menun:after{
+.menu:after{
   content:"";
   height:100%;
   width:100%;
@@ -465,4 +461,13 @@ main{
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+}
+
+.finalGame {
+  font-family: "Droid Sans", arial, verdana, sans-serif;
+  font-weight: 700;
+  color: #ff6;
+  font-size: 10em;
+  text-align: center;
+  margin-top: 10%;
 }
