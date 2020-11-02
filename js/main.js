@@ -114,19 +114,18 @@ buildDom(`
   };
 
   let buildGameOver = () => {
-    
     buildDom(`
             <section class="game-over">
             <div class="finalGame">Game Over</div>
-            <div>
-            <button class="restart">
+            <div class="container">
+            <div class="restart">
               <a href="#">Restart</a>
-            </button>
-            <button class="menu">
-              <a href="#">Menu</a>
-            </button>
             </div>
-            <div>Your score has: ${game.points}</div>
+            <div class="menu">
+              <a href="#">Menu</a>
+            </div>
+            </div>
+            <div>Your score has:</div>
             </section>
             `);
 

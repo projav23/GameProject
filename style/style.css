@@ -38,9 +38,10 @@ main{
   100% { opacity: 1; }
 }
 
+  
 .button a{
   color:#ff6;
-  font-family:Helvetica, sans-serif;
+  font-family:"Droid Sans", arial, verdana, sans-serif;
   font-weight:bold;
   font-size:36px;
   text-align: center;
@@ -49,7 +50,7 @@ main{
   display:block;
   position:relative;
   padding:20px 40px;
-  border: 1px solid #ff6;
+
   
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   text-shadow: 0px 1px 0px black;
@@ -63,7 +64,9 @@ main{
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-
+.button a:hover{
+  border: 1px solid #ff6
+}
 .button a:active{
   top:10px;
   background-color:black;
@@ -343,6 +346,8 @@ main{
  .restart{
   position:relative;
   /* display: flex; */
+  width: 200px;
+  height: 200px;
   justify-content: center;
   margin-top: 5%;
   margin-left: 35%;
@@ -356,7 +361,7 @@ main{
 
 .restart a{
   color:#ff6;
-  font-family:Helvetica, sans-serif;
+  font-family:"Droid Sans", arial, verdana, sans-serif;
   font-weight:bold;
   font-size:36px;
   text-align: center;
@@ -365,7 +370,7 @@ main{
   display:block;
   position:relative;
   padding:20px 40px;
-  border: 1px solid #ff6;
+
   
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   text-shadow: 0px 1px 0px black;
@@ -378,6 +383,9 @@ main{
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+}
+.restart a:hover{
+  border: 1px solid #ff6
 }
 
 .restart a:active{
@@ -410,12 +418,14 @@ main{
   justify-content: center;
   margin-top: 5%;
   /* animation: boton 1s ease-out; */
+  width: 200px;
+  height: 200px;
 }
 
 
 .menu a{
   color:#ff6;
-  font-family:Helvetica, sans-serif;
+  font-family:"Droid Sans", arial, verdana, sans-serif;
   font-weight:bold;
   font-size:36px;
   text-align: center;
@@ -424,7 +434,7 @@ main{
   display:block;
   position:relative;
   padding:20px 40px;
-  border: 1px solid #ff6;
+
   
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   text-shadow: 0px 1px 0px black;
@@ -437,6 +447,9 @@ main{
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
+}
+.menu a:hover{
+  border: 1px solid #ff6
 }
 
 .menu a:active{
@@ -470,4 +483,7 @@ main{
   font-size: 10em;
   text-align: center;
   margin-top: 10%;
+}
+.container{
+  display: flex;
 }

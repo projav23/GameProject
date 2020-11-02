@@ -64,10 +64,10 @@ class Game {
   drawCanvas(){
     //console.log("draw")
     this.space.drawSpace()
-    this.ctx.fillStyle = 'orange';
-    this.ctx.font = '30px Arial';
+    this.ctx.fillStyle = "#ff6";
+    this.ctx.font = '30px "Droid Sans", arial, verdana, sans-serif';
     this.ctx.fillText(`Score: ${this.points}`,this.canvas.width -200, this.canvas.height -10);
-    this.ctx.fillText(`Lives: ${this.player.lives}`,this.canvas.width -400, this.canvas.height -10);
+    this.ctx.fillText(`Lives: ${this.player.lives}`,this.canvas.width/2 -50, this.canvas.height -10);
     this.player.drawPlayer()
     this.bullets.forEach((bullet)=>{
       bullet.drawBullet();
