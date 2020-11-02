@@ -32,7 +32,7 @@ class Game {
       //   this.enemies.push(new Enemy(this.canvas, y));
       // }
       if (this.bulletOn){
-        this.bullets.push(new Bullet(this.canvas, (this.player.width), (this.player.y + this.player.height/2)))
+        this.bullets.push(new Bullet(this.canvas, (this.player.x + this.player.width), (this.player.y + this.player.height/2)))
         this.bulletOn = false;
         console.log(this.bullets)
       }

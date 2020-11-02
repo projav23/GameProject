@@ -8,14 +8,17 @@ class Player {
     this.y = this.canvas.height/2;
     this.width = 100;
     this.height = 90;
-    this.speed = 1;
+    this.speed = 2;
     this.lives = lives;
-    this.direction = 0;
+    this.directionY = 1;
+    this.directionX = 1;
   }
 
-  update(){
-    this.y = this.y + this.direction * this.speed;
-    //this.x = this.x + this.direction * this.speed;
+  updateY(){
+    this.y = this.y + this.directionY * this.speed;
+  }
+  updateX(){
+    this.x = this.x + this.directionX * this.speed;
   }
   drawPlayer(){
     let imgNave = new Image();
@@ -24,8 +27,11 @@ class Player {
     this.ctx.drawImage(imgNave, this.x, this.y, this.width, this.height)
   }
 
-  setDirection(direction){
-    this.direction = direction
+  setDirectionY(directionY){
+    this.directionY = directionY
+  }
+  setDirectionX(directionX){
+    this.directionX = directionX
   }
   checkScreen(){
     if (this.y  <= 0){
@@ -33,6 +39,12 @@ class Player {
     }else if (this.y  >= this.canvas.height - 90){
       this.y = this.canvas.height - 90 
     } 
+    if (this.x + this.width >= this.canvas.width){
+      this.y = this.canvas.width - this.width
+    } else if (this.x <= 0){
+      this.x = 10
+    }
+
   
   }
   checkCollisionEnemy(enemy){
