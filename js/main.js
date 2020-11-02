@@ -32,31 +32,14 @@ buildDom(`
     <p>No has podido leer todo porque va muy rapido</p>
     </div>
 </div>
-
-        
-
 <section class="splash-screen">
         <div class="button">
           <a href="#">Start Game</a>
         </div>
         <div class="codeBy"><p>Code by Javier Gómez</p></div>
-        </section>
-
-
+</section>
       `)
-    // buildDom(`
-    //     <section class="splash-screen">
-    //         <h1>Space Invaders</h1>
-    //         <div class="botones">
-    //         <div class="button">
-    //           <a href="#">Start Game</a>
-    //         </div>
-    //         </div>
-    //         <div class="codeBy"><p>Code by Javier Gómez</p></div>
-    //     </section>
-    //     `);
-    // let body = document.querySelector("body")
-    // body.style.backgroundColor = "black";
+    document.body.style.backgroundImage = "none"
     let startButton = document.querySelector(".button");
     startButton.addEventListener("click", buildGameScreen);
   };
@@ -106,6 +89,20 @@ buildDom(`
         audio.play();
       }
     }
+    function togglePause(){
+      if (!game.pause){
+        game.pause = true;
+      } else if (game.pause){
+        game.pause= false;
+      }
+    }
+    const pausedGame = (event) => {
+      if (event.code === "KeyP"){
+        togglePause()
+      }
+    }
+
+    document.addEventListener("keydown", pausedGame);
     document.addEventListener("keydown", setPlayerDirectionY);
     document.addEventListener("keydown", setPlayerDirectionX);
     document.addEventListener("keydown", createBulletPlayer);
@@ -149,6 +146,8 @@ buildDom(`
   //   btnPlayAgain.addEventListener("click", buildGameScreen)
   // };
   buildSplashScreen();
+  // let audio2 = new Audio("sounds/starwras-guerra-de-las-galaxias-peliculas-.mp3")
+  // audio2.play();
 }
 
 window.addEventListener("load", main)

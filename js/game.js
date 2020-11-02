@@ -10,9 +10,11 @@ class Game {
     this.bullet;
     this.enemies = [];
     this.bullets = [];
+    // this.bulletsEnemies = [];
     this.isGameOver = false;
     this.points = 0;
     this.bulletOn = false;
+    this.pause = false;
   }
 
   startLoop(){
@@ -25,12 +27,8 @@ class Game {
       const y = Math.random() * (this.canvas.height - this.enemy.height);
       this.enemies.push(new Enemy(this.canvas, y));
     }, 1000);
+
     const loop = () => {
-      //console.log("const loop")
-      // if (Math.random() > 0.98) {
-      //   const y = Math.random() * (this.canvas.height - this.enemy.height);
-      //   this.enemies.push(new Enemy(this.canvas, y));
-      // }
       if (this.bulletOn){
         this.bullets.push(new Bullet(this.canvas, (this.player.x + this.player.width), (this.player.y + this.player.height/2)))
         this.bulletOn = false;
@@ -40,13 +38,14 @@ class Game {
       this.clearCanvas();
       this.drawCanvas();
       if (!this.isGameOver) {
-        window.requestAnimationFrame(loop);
+          window.requestAnimationFrame(loop);
       }
     };
 
     window.requestAnimationFrame(loop);
   }
   updateCanvas(){
+    if (!this.pause){
     //console.log("update")
     this.space.update()
     this.bullets.forEach((bullet)=>{
@@ -56,6 +55,7 @@ class Game {
     this.enemies.forEach((enemy) => {
       enemy.update();
     });
+    }
   }
   clearCanvas(){
     //console.log("clear")
