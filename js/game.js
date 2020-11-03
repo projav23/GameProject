@@ -19,7 +19,6 @@ class Game {
   }
 
   startLoop(){
-    //console.log("loop")
     this.enemy = new Enemy(this.canvas)
     this.player = new Player(this.canvas, 3);
     this.space = new Space(this.canvas);
@@ -31,8 +30,10 @@ class Game {
       }
     }, 1000);
     setInterval(() => {
+      if (!this.pause){
       let i = Math.floor(Math.random() * this.enemies.length)
       this.bulletsEnemies.push(new BulletEnemies(this.canvas, this.enemies[i].x, this.enemies[i].y + this.enemies[i].width/2))
+      }
     }, 1000);
 
     const loop = () => {
@@ -40,10 +41,12 @@ class Game {
         this.bullets.push(new Bullet(this.canvas, (this.player.x + this.player.width), (this.player.y + this.player.height/2)))
         this.bulletOn = false;
       }
+      if (!this.pause){
       this.checkAllCollisions();
       this.updateCanvas();
       this.clearCanvas();
       this.drawCanvas();
+      }
       if (!this.isGameOver) {
           window.requestAnimationFrame(loop);
       }
@@ -52,27 +55,22 @@ class Game {
     window.requestAnimationFrame(loop);
   }
   updateCanvas(){
-    if (!this.pause){
-    //console.log("update")
     this.space.update()
     this.bullets.forEach((bullet)=>{
       bullet.update();
     })
-    //this.player.update();
     this.enemies.forEach((enemy) => {
       enemy.update();
     });
     this.bulletsEnemies.forEach((bullet)=>{
       bullet.update();
     })
-    }
+    
   }
   clearCanvas(){
-    //console.log("clear")
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
   }
   drawCanvas(){
-    //console.log("draw")
     this.space.drawSpace()
     this.ctx.fillStyle = "#ff6";
     this.ctx.font = '30px "Droid Sans", arial, verdana, sans-serif';
@@ -90,7 +88,6 @@ class Game {
     })
   }
   checkAllCollisions(){
-    //console.log("colision")
     this.player.checkScreen();
     this.enemies.forEach((enemy, index) => {
       if (this.player.checkCollisionEnemy(enemy)) {
@@ -125,18 +122,15 @@ class Game {
     })
   };
   gameOverCallback(callback){
-    //console.log("gameOver")
     this.onGameOver = callback;
   };
   highScores(){
-    console.log("funcion highScore")
     if(localStorage.getItem("highscore") !== null){
       if (this.points > localStorage.getItem("highscore")) {
           localStorage.setItem("highscore", this.points);      
       }
     }
     else{
-      console.log("crea highScore")
       localStorage.setItem("highscore", this.points);
     }
   }

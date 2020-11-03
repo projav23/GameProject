@@ -1,6 +1,5 @@
 "use-strict"
 
-
 const main = () => {
   const buildDom = (html) => {
     const main = document.querySelector("main");
@@ -9,13 +8,10 @@ const main = () => {
   let buildSplashScreen = () => {
 buildDom(`
 <h1>STAR WARS<sub>IronHack Wars</sub></h1>
-
 <div id="titles">
   <div id="titlecontent">
-
     <p class="center">EPISODIO CUARENTENA<br/>
       Una nueva esperanza</p>
-
     <p>En una galaxia lejana...</p>
     <p>Un soldado imperial es la unica esperando para acabar con todo el ejercito de la Republica.</p>
     <p>Lorem ipsum .</p>
@@ -43,33 +39,28 @@ buildDom(`
     let startButton = document.querySelector(".button");
     startButton.addEventListener("click", buildGameScreen);
   };
-
   let buildGameScreen = () => {
     buildDom(`
         <section class="game-screen">
             <canvas></canvas>
         </section>
         `);
+    document.body.style.backgroundImage = "none"
     document.querySelector(".game-screen").style.height = "790px";
     let width = document.querySelector(".game-screen").offsetWidth;
     let height = document.querySelector(".game-screen").offsetHeight;
     let canvas = document.querySelector("canvas");
     canvas.setAttribute("width", width);
     canvas.setAttribute("height", height);
-
     const game = new Game(canvas);
     game.gameOverCallback(buildGameOver);
-    
     game.startLoop();
-    
-
     const setPlayerDirectionY = (event) => {
       if (event.code === "ArrowUp") {
-        console.log("Mover")
-        game.player.setDirectionY(-20);
+        game.player.setDirectionY(-5);
         game.player.updateY()
       } else if (event.code === "ArrowDown") {
-        game.player.setDirectionY(20);
+        game.player.setDirectionY(5);
         game.player.updateY()
       } 
     };
@@ -101,17 +92,14 @@ buildDom(`
         togglePause()
       }
     }
-
     document.addEventListener("keydown", pausedGame);
     document.addEventListener("keydown", setPlayerDirectionY);
     document.addEventListener("keydown", setPlayerDirectionX);
     document.addEventListener("keydown", createBulletPlayer);
   };
-
   let buildGameOver = (score) => {
     buildDom(`
             <section class="game-over">
-
             <div class="finalGame">Game Over
             </div>
             <div class="container">
@@ -130,11 +118,9 @@ buildDom(`
     document.body.style.backgroundSize = "cover"
     let restartBtn = document.querySelector(".restart");
     let menuBtn = document.querySelector(".menu");
-
     restartBtn.addEventListener("click", buildGameScreen)
     menuBtn.addEventListener("click", buildSplashScreen)
   };
   buildSplashScreen();
 }
-
 window.addEventListener("load", main)

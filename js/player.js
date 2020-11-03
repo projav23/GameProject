@@ -6,14 +6,13 @@ class Player {
     this.ctx = this.canvas.getContext("2d");
     this.x = 10;
     this.y = this.canvas.height/2;
-    this.width = 100;
-    this.height = 90;
-    this.speed = 2;
+    this.width = 60;
+    this.height = 40;
+    this.speed = 3;
     this.lives = lives;
     this.directionY = 1;
     this.directionX = 1;
   }
-
   updateY(){
     this.y = this.y + this.directionY * this.speed;
   }
@@ -23,10 +22,8 @@ class Player {
   drawPlayer(){
     let imgNave = new Image();
     imgNave.src = "images/labuena-removebg-preview.png"
-    //imgNave.src = "images/laserchulo.png"
     this.ctx.drawImage(imgNave, this.x, this.y, this.width, this.height)
   }
-
   setDirectionY(directionY){
     this.directionY = directionY
   }
@@ -44,23 +41,18 @@ class Player {
     } else if (this.x <= 0){
       this.x = 10
     }
-
-  
   }
   checkCollisionEnemy(enemy){
     const collideRight = this.x + this.width / 2 > enemy.x - enemy.width / 2;
     const collideLeft = this.x - this.width / 2 < enemy.x + enemy.width / 2;
     const collideTop = this.y + this.height / 2 > enemy.y - enemy.height / 2;
     const collideBottom = this.y - this.height / 2 < enemy.y + enemy.height / 2;
-
     if (collideRight && collideLeft && collideTop && collideBottom) {
       return true;
     }
-
     return false;
   }
   loseLives(){
-    console.log("una vida menos")
     this.lives--
   }
 }

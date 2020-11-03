@@ -15,25 +15,10 @@ class Enemy {
     this.x = this.x + this.direction * this.speed;
   }
   checkScreen(){
-
   }
   drawEnemy(){
     let imgEnemy = new Image()
     imgEnemy.src = "images/naveEnemiga-removebg-preview.png"
     this.ctx.drawImage(imgEnemy, this.x, this.y, this.width, this.height)
   }
-  setDirection(direction){
-    this.direction = direction;
-  }
 }
-
-
-
-// this.bullets.forEach((bullet, indexBullet) => {
-//   this.enemies.forEach((enemy, indexEnemy) => {
-//     if (bullet.checkCollisionEnemy(enemy)){
-//       this.enemies.splice(indexEnemy, 1)
-//       this.bullets.splice(indexBullet, 1)
-//     }
-//   })
-// });
