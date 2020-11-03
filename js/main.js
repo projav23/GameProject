@@ -123,6 +123,7 @@ buildDom(`
             </div>
             </div>
             <div class="score">Your score: ${score}</div>
+            <div class="highScore">BestScore: ${localStorage.getItem("highscore")}</div>
             </section>
             `);
     document.body.style.backgroundImage = "url(images/rompeDaver.gif)"
@@ -133,21 +134,7 @@ buildDom(`
     restartBtn.addEventListener("click", buildGameScreen)
     menuBtn.addEventListener("click", buildSplashScreen)
   };
-
-  // let buildWin = () => {
-  //   buildDom(`
-  //   <section class="game-win">
-  //       <h1>Has derrota al imperio</h1>
-  //       <button class ="playagain">Play Again</button>
-  //   </section>
-  //   `);
-
-  //   let btnPlayAgain = document.querySelector(".playagain")
-  //   btnPlayAgain.addEventListener("click", buildGameScreen)
-  // };
   buildSplashScreen();
-  // let audio2 = new Audio("sounds/starwras-guerra-de-las-galaxias-peliculas-.mp3")
-  // audio2.play();
 }
 
 window.addEventListener("load", main)

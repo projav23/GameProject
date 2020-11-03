@@ -10,7 +10,8 @@ class Game {
     this.bullet;
     this.enemies = [];
     this.bullets = [];
-    // this.bulletsEnemies = [];
+    this.highScore;
+    this.bulletsEnemies = [];
     this.isGameOver = false;
     this.points = 0;
     this.bulletOn = false;
@@ -24,8 +25,14 @@ class Game {
     this.space = new Space(this.canvas);
     this.bullet = new Bullet(this.canvas, (this.player.width), (this.player.y + this.player.height/2))
     setInterval(() => {
-      const y = Math.random() * (this.canvas.height - this.enemy.height);
-      this.enemies.push(new Enemy(this.canvas, y));
+      if (!this.pause){
+        const y = Math.random() * (this.canvas.height - this.enemy.height);
+        this.enemies.push(new Enemy(this.canvas, y));
+      }
+    }, 1000);
+    setInterval(() => {
+      let i = Math.floor(Math.random() * this.enemies.length)
+      this.bulletsEnemies.push(new BulletEnemies(this.canvas, this.enemies[i].x, this.enemies[i].y + this.enemies[i].width/2))
     }, 1000);
 
     const loop = () => {
@@ -55,6 +62,9 @@ class Game {
     this.enemies.forEach((enemy) => {
       enemy.update();
     });
+    this.bulletsEnemies.forEach((bullet)=>{
+      bullet.update();
+    })
     }
   }
   clearCanvas(){
@@ -75,6 +85,9 @@ class Game {
     this.enemies.forEach((enemy)=>{
       enemy.drawEnemy();
     })
+    this.bulletsEnemies.forEach((bullet)=>{
+      bullet.drawBullet();
+    })
   }
   checkAllCollisions(){
     //console.log("colision")
@@ -85,7 +98,7 @@ class Game {
         this.enemies.splice(index, 1);
         if (this.player.lives === 0) {
           this.isGameOver = true;
-          console.log(this.points)
+          this.highScores()
           this.onGameOver(this.points);
           this.points = 0;
         }
@@ -100,9 +113,31 @@ class Game {
         };
       });
     });
+    this.bulletsEnemies.forEach((bullet, i)=>{
+      if (bullet.checkCollisionEnemy(this.player)){
+        this.bulletsEnemies.splice(i, 1)
+        this.isGameOver = true;
+        this.highScores()
+        this.onGameOver(this.points)
+        this.points = 0;
+        
+      }
+    })
   };
   gameOverCallback(callback){
     //console.log("gameOver")
     this.onGameOver = callback;
   };
+  highScores(){
+    console.log("funcion highScore")
+    if(localStorage.getItem("highscore") !== null){
+      if (this.points > localStorage.getItem("highscore")) {
+          localStorage.setItem("highscore", this.points);      
+      }
+    }
+    else{
+      console.log("crea highScore")
+      localStorage.setItem("highscore", this.points);
+    }
+  }
 }
