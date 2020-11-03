@@ -169,15 +169,15 @@
 
 Pendientes:
 
-Corregir el lag que hay en el juego
-//Colocar enemigos en columnas
-//Que los enemigos disparen random
-//Añadir highScores
-Añadir boton de controles
-Hacer que con el tiempo, las naves vayan mas rapido y salgan más
+   //Corregir el lag que hay en el juego
+   //Colocar enemigos en columnas
+   //Que los enemigos disparen random
+   //Añadir highScores
+   //Añadir boton de controles
+   //Hacer que con el tiempo, las naves vayan mas rapido y salgan más
 Movimiento de la nave mas fluido
 Añadir sonido inicial juego - BSO
-Pintar pausa cuando este parado el juego y pulsar p para reanudar
+   //Pintar pausa cuando este parado el juego y pulsar p para reanudar
 
 
 

@@ -9,27 +9,31 @@ body, html{
   overflow: hidden;
 }
 main{
+  width: 100%;
   height: 100%;
+  position: fixed;
+  bottom: 0;
 }
 .codeBy {
   font-family: "Droid Sans", arial, verdana, sans-serif;
   position: relative;
   color: #ff6;
-  margin-top: 22%;
+  margin-top: 17%;
   margin-left: 1%;
-  animation: code 27s ease
+  animation: code 25s ease;
 }
 @keyframes code {
   0% { opacity: 0; }
   90% { opacity: 0; }
   100% { opacity: 1; }
 }
+
 .button{
   position:relative;
   display: flex;
   justify-content: center;
   margin-top: 25%;
-  animation: boton 27s ease-out;
+  animation: boton 25s ease-out;
 }
 @keyframes boton {
   0% { opacity: 0; }
@@ -49,6 +53,33 @@ main{
   padding:20px 40px;
 }
 .button a:hover{
+  border: 1px solid #ff6
+}
+.controls{
+  position:relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 2%;
+  animation: control 25s ease-out;
+}
+@keyframes control {
+  0% { opacity: 0; }
+  90% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.controls a{
+  color:#ff6;
+  font-family:"Droid Sans", arial, verdana, sans-serif;
+  font-weight:bold;
+  font-size:36px;
+  text-align: center;
+  text-decoration:none;
+  background-color:black;
+  display:block;
+  position:relative;
+  padding:20px 40px;
+}
+.controls a:hover{
   border: 1px solid #ff6
 }
 .splash-screen {
@@ -87,7 +118,6 @@ main{
   margin-top: 0;
 }
  * { padding: 0; margin: 0; }
- 
 p#start {
   position: relative;
   width: 300px;
@@ -119,10 +149,10 @@ h1 {
   text-shadow: -2px -2px 0 #ff6, 2px -2px 0 #ff6, -2px 2px 0 #ff6, 2px 2px 0 #ff6;
   opacity: 0;
   z-index: 1;
-  -webkit-animation: logo 5s ease-out 2.5s;
+  /* -webkit-animation: logo 5s ease-out 2.5s;
   -moz-animation: logo 5s ease-out 2.5s;
   -ms-animation: logo 5s ease-out 2.5s;
-  -o-animation: logo 5s ease-out 2.5s;
+  -o-animation: logo 5s ease-out 2.5s; */
   animation: logo 5s ease-out 2.5s;
 }
 h1 sub{
@@ -146,15 +176,15 @@ h1 sub{
   font-size: 350%;
   text-align: justify;
   overflow: hidden;
-  -webkit-transform-origin: 50% 100%;
+  /* -webkit-transform-origin: 50% 100%;
   -moz-transform-origin: 50% 100%;
   -ms-transform-origin: 50% 100%;
-  -o-transform-origin: 50% 100%;
+  -o-transform-origin: 50% 100%; */
   transform-origin: 50% 100%;
-  -webkit-transform: perspective(300px) rotateX(25deg);
+  /* -webkit-transform: perspective(300px) rotateX(25deg);
   -moz-transform: perspective(300px) rotateX(25deg);
   -ms-transform: perspective(300px) rotateX(25deg);
-  -o-transform: perspective(300px) rotateX(25deg);
+  -o-transform: perspective(300px) rotateX(25deg); */
   transform: perspective(300px) rotateX(25deg);
 }
 #titles:after {
@@ -164,10 +194,10 @@ h1 sub{
   right: 0;
   top: 0;
   bottom: 60%;
-  background-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+  /* background-image: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
   background-image: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
   background-image: -ms-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
-  background-image: -o-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
+  background-image: -o-linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%); */
   background-image: linear-gradient(top, rgba(0,0,0,1) 0%, transparent 100%);
   pointer-events: none;
 }
@@ -198,8 +228,8 @@ h1 sub{
   height: 200px;
   justify-content: center;
   margin-top: 5%;
-  margin-left: 35%;
-  animation: botonRestart 5s ease-out; 
+  margin-left: 40%;
+  animation: botonRestart 3s ease-out; 
 }
 @keyframes botonRestart {
   0% { opacity: 0; }
@@ -227,7 +257,7 @@ h1 sub{
   /* display: flex; */
   justify-content: center;
   margin-top: 5%;
-  animation: botonMenu 5s ease-out; 
+  animation: botonMenu 3s ease-out; 
   width: 200px;
   height: 200px;
 }
@@ -258,15 +288,21 @@ h1 sub{
   font-size: 10em;
   text-align: center;
   margin-top: 10%;
-  animation: gameOver 5s ease-out;
+  animation: gameOver 3s ease-out;
+  z-index: 100;
 }
 @keyframes gameOver {
   0% { opacity: 0; }
   90% { opacity: 0; }
   100% { opacity: 1; }
 }
+.containerAll{
+  display: flex;
+  flex-direction: column;
+}
 .container{
   display: flex;
+  flex-direction: row;
 }
 .score{
   font-family: "Droid Sans", arial, verdana, sans-serif;
@@ -274,12 +310,53 @@ h1 sub{
   color: #ff6;
   font-size: 2em;
   text-align: center;
-  animation: score 5s ease-out;
+  animation: score 3s ease-out;
+  z-index: 100;
 }
 @keyframes score {
   0% { opacity: 0; }
   90% { opacity: 0; }
   100% { opacity: 1; }
 }
+.highScore{
+  font-family: "Droid Sans", arial, verdana, sans-serif;
+  font-weight: 100;
+  color: #ff6;
+  font-size: 1em;
+  text-align: center;
+  animation: score 3s ease-out;
+  z-index: 100;
+}
+@keyframes highScore {
+  0% { opacity: 0; }
+  90% { opacity: 0; }
+  100% { opacity: 1; }
+}
 
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  /* z-index: -100; */
+}
 
+.controls-screen{
+  width: 100%;
+  height: 790px;
+}
+#keyboard-controls{
+  
+  margin-top: 6%;
+  margin-left: 33%;
+}
+
+.howToPlay{
+  font-family: "Droid Sans", arial, verdana, sans-serif;
+  font-weight: 300;
+  color: #ff6;
+  font-size: 5em;
+  text-align: center;
+  margin-top: 5%;
+}

@@ -60,7 +60,7 @@ class Game {
       bullet.update();
     })
     this.enemies.forEach((enemy) => {
-      enemy.update();
+      enemy.update(this.points);
     });
     this.bulletsEnemies.forEach((bullet)=>{
       bullet.update();
@@ -120,6 +120,18 @@ class Game {
         
       }
     })
+    this.enemies.forEach((enemy, index) => {
+      if (enemy.x - enemy.width <=0) {
+        this.enemies.splice(enemy, index)
+      }
+    });
+    this.bulletsEnemies.forEach((bullet, indexBullet) => {
+      if (bullet.x - bullet.width <=0){
+        this.bulletsEnemies.splice(bullet, indexBullet)
+      }
+    });
+    console.log(this.enemies)
+    console.log(this.bulletsEnemies)
   };
   gameOverCallback(callback){
     this.onGameOver = callback;

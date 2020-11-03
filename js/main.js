@@ -15,14 +15,8 @@ buildDom(`
     <p>En una galaxia lejana...</p>
     <p>Un soldado imperial es la unica esperando para acabar con todo el ejercito de la Republica.</p>
     <p>Lorem ipsum .</p>
-    <p>Also, by mentioning "Star Wars", everyone will understand what I mean. And I'll receive several thousand more visits.</p>
-    <p>The scrolling titles work well in Chrome, Safari and Firefox. Opera doesn't implement 3D transforms yet, but the text will scroll. IE users receive a blank page. A shame, but IE10 should support it.</p>
-    <p>So how does it work? Wellso has anhe text appears to fade out.</p>
-    <p>Inside, we  contains the t tove it upward over time. No JavaScript is required.</p>
-    <p>You will probably needtext you want to show. The 3D depth can also be tweaked in the #titles declaration.</p>
-    <p>All the cTML file&hellip;</p>
-    <p class="center">View the source, Luke!</p>
-    <p>Sorry. Couldn't resist it.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum urna in ante ultricies malesuada. Curabitur pretium enim in lacus tempus tempor. Fusce sit amet lorem odio. Morbi molestie mauris non ex lobortis porttitor. Phasellus et sodales sapien, ut lacinia velit. In sagittis vitae quam et cursus. Aenean at nunc nunc. Cras pulvinar consequat congue. Vestibulum feugiat magna a tellus venenatis ultrices. Quisque ex nisl, pellentesque in massa sed, auctor consectetur purus. Suspendisse eget elementum tellus. In eu dui sed mauris vulputate dictum ac quis nisl. Duis venenatis iaculis consequat. Sed id eleifend quam. Donec sodales enim condimentum odio facilisis, sit amet vestibulum quam sodales.</p>
+    <p class="center"></p>
     <p></p>
     <p class="center"></p>
     <p>No has podido leer todo porque va muy rapido</p>
@@ -32,13 +26,30 @@ buildDom(`
         <div class="button">
           <a href="#">Start Game</a>
         </div>
+        <div class="controls">
+          <a href="#">How to play</a>
+        </div>
         <div class="codeBy"><p>Code by Javier Gómez</p></div>
 </section>
       `)
     document.body.style.backgroundImage = "none"
     let startButton = document.querySelector(".button");
     startButton.addEventListener("click", buildGameScreen);
+    let controlButton = document.querySelector(".controls");
+    controlButton.addEventListener("click", buildControls);
   };
+  let buildControls = () => {
+    buildDom(`
+    <section class="controls-screen">
+      <div class="howToPlay">Keyboard controls</div>
+     
+      <img  id="keyboard-controls" src="images/control_bien-removebg-preview.png" alt="">
+    
+      <div class="explain"></div>
+    </section>
+    `)
+  };
+
   let buildGameScreen = () => {
     buildDom(`
         <section class="game-screen">
@@ -46,9 +57,9 @@ buildDom(`
         </section>
         `);
     document.body.style.backgroundImage = "none"
-    document.querySelector(".game-screen").style.height = "790px";
-    let width = document.querySelector(".game-screen").offsetWidth;
-    let height = document.querySelector(".game-screen").offsetHeight;
+    //document.querySelector(".game-screen").style.height = "790px";
+    let width = document.querySelector("main").offsetWidth;
+    let height = document.querySelector("main").offsetHeight;
     let canvas = document.querySelector("canvas");
     canvas.setAttribute("width", width);
     canvas.setAttribute("height", height);
@@ -81,8 +92,16 @@ buildDom(`
       }
     }
     function togglePause(){
+      let canvasPause = document.querySelector("canvas");
+      let ctxPause = canvasPause.getContext("2d")
       if (!game.pause){
         game.pause = true;
+        ctxPause.fillStyle = "rgba(155, 155, 155, 0.322)";
+        ctxPause.font = '80px "Droid Sans", arial, verdana, sans-serif';
+        ctxPause.fillText(`Game paused`,canvasPause.width/2 -200, canvasPause.height/2);
+        ctxPause.fillStyle = "rgba(155, 155, 155, 1)";
+        ctxPause.font = '20px "Droid Sans", arial, verdana, sans-serif';
+        ctxPause.fillText("Press key P to continue again",canvasPause.width/2 -60, canvasPause.height/2 + 60)
       } else if (game.pause){
         game.pause= false;
       }
@@ -99,7 +118,9 @@ buildDom(`
   };
   let buildGameOver = (score) => {
     buildDom(`
+            <video id="myVideo" src="images/JAvi pesado.m4v" autoplay></video>
             <section class="game-over">
+            <div class="containerAll">
             <div class="finalGame">Game Over
             </div>
             <div class="container">
@@ -112,10 +133,11 @@ buildDom(`
             </div>
             <div class="score">Your score: ${score}</div>
             <div class="highScore">BestScore: ${localStorage.getItem("highscore")}</div>
+            </div>
             </section>
             `);
-    document.body.style.backgroundImage = "url(images/rompeDaver.gif)"
-    document.body.style.backgroundSize = "cover"
+    document.body.style.backgroundImage = "none)"
+    //document.querySelector("#myVideo").style.backgroundSize = "cover"
     let restartBtn = document.querySelector(".restart");
     let menuBtn = document.querySelector(".menu");
     restartBtn.addEventListener("click", buildGameScreen)

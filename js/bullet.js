@@ -27,6 +27,7 @@ class Bullet {
     if (collideRight && collideLeft && collideTop && collideBottom) {
       let audio = new Audio("sounds/003576076_prev.mp3");
       audio.play();
+
       return true;
     }
     return false;

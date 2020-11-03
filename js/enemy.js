@@ -11,8 +11,15 @@ class Enemy {
     this.width = 40
     this.height = 50
   }
-  update(){
+  update(points){
+    if (points < 1000){
     this.x = this.x + this.direction * this.speed;
+    } else if (points >1001){
+      this.x = this.x + this.direction * 3;
+    } else if (points > 3000){
+      this.x = this.x + this.direction * 5;
+    }
+  
   }
   checkScreen(){
   }
