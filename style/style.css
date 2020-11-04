@@ -18,7 +18,7 @@ main{
   font-family: "Droid Sans", arial, verdana, sans-serif;
   position: relative;
   color: #ff6;
-  margin-top: 17%;
+  margin-top: 22%;
   margin-left: 1%;
   animation: code 25s ease;
 }
@@ -32,7 +32,7 @@ main{
   position:relative;
   display: flex;
   justify-content: center;
-  margin-top: 25%;
+  margin-top: 20%;
   animation: boton 25s ease-out;
 }
 @keyframes boton {
@@ -348,7 +348,7 @@ h1 sub{
 }
 #keyboard-controls{
   
-  margin-top: 6%;
+  margin-top: 2%;
   margin-left: 33%;
 }
 
@@ -358,5 +358,47 @@ h1 sub{
   color: #ff6;
   font-size: 5em;
   text-align: center;
-  margin-top: 5%;
+  margin-top: 3%;
+}
+.backMenu{
+  position:relative;
+  display: flex;
+  
+  margin-top: 18%;
+  margin-left: 1%;
+  animation: control 1s ease-out;
+}
+.backMenu a{
+  color:white;
+  font-family:"Droid Sans", arial, verdana, sans-serif;
+  font-weight:bold;
+  font-size:36px;
+  text-align: center;
+  text-decoration:none;
+  background-color:black;
+  display:block;
+  position:relative;
+  padding:20px 40px;
+  border: 1px solid white;
+}
+.explain{
+  display: flex;
+  justify-content: center;
+} 
+.explain p {
+  font-family:"Droid Sans", arial, verdana, sans-serif;
+  width: 200px;
+  text-align: center;
+  margin-left: 2%;
+  padding: 10px 0 10px 0;
+  color: white;
+}
+#move{
+  border: 2px solid red;
+}
+#pause{
+  border: 2px solid blue;
+}
+#shoot{
+border: 2px solid green;
 }

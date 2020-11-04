@@ -10,12 +10,14 @@ class Game {
     this.bullet;
     this.enemies = [];
     this.bullets = [];
+    this.bulletsAll = [];
     this.highScore;
     this.bulletsEnemies = [];
     this.isGameOver = false;
     this.points = 0;
     this.bulletOn = false;
     this.pause = false;
+    this.weapon = false;
   }
 
   startLoop(){
@@ -41,6 +43,14 @@ class Game {
         this.bullets.push(new Bullet(this.canvas, (this.player.x + this.player.width), (this.player.y + this.player.height/2)))
         this.bulletOn = false;
       }
+      if (this.weapon){
+        this.bulletsAll.push(new BulletAllDirections(this.canvas, (this.player.x + this.player.width/2), (this.player.y + this.player.height/2), (this.player.x + this.player.width),this.player.x, this.player.y, (this.player.y + this.player.height)))
+        this.bulletsAll.push(new BulletAllDirections(this.canvas, (this.player.x + this.player.width/2), (this.player.y + this.player.height/2), (this.player.x + this.player.width),this.player.x, this.player.y, (this.player.y + this.player.height)))
+        this.bulletsAll.push(new BulletAllDirections(this.canvas, (this.player.x + this.player.width/2), (this.player.y + this.player.height/2), (this.player.x + this.player.width),this.player.x, this.player.y, (this.player.y + this.player.height)))
+        this.bulletsAll.push(new BulletAllDirections(this.canvas, (this.player.x + this.player.width/2), (this.player.y + this.player.height/2), (this.player.x + this.player.width),this.player.x, this.player.y, (this.player.y + this.player.height)))
+        this.weapon = false;
+      }
+      
       if (!this.pause){
       this.checkAllCollisions();
       this.updateCanvas();
@@ -58,6 +68,9 @@ class Game {
     this.space.update()
     this.bullets.forEach((bullet)=>{
       bullet.update();
+    })
+    this.bulletsAll.forEach((bullet)=>{
+      bullet.update()
     })
     this.enemies.forEach((enemy) => {
       enemy.update(this.points);
@@ -78,6 +91,9 @@ class Game {
     this.ctx.fillText(`Lives: ${this.player.lives}`,this.canvas.width/2 -50, this.canvas.height -10);
     this.player.drawPlayer()
     this.bullets.forEach((bullet)=>{
+      bullet.drawBullet();
+    })
+    this.bulletsAll.forEach((bullet)=>{
       bullet.drawBullet();
     })
     this.enemies.forEach((enemy)=>{
@@ -120,18 +136,60 @@ class Game {
         
       }
     })
+    this.bulletsAll.forEach((bullet, indexBullet) => {
+      this.enemies.forEach((enemy, indexEnemy) => {
+        if (bullet.checkCollisionEnemyRigth(enemy)){
+          this.points += 25;
+          this.enemies.splice(indexEnemy, 1);
+          console.log("primer if")
+          this.bulletsAll.splice(indexBullet, 1);
+        } else if (bullet.checkCollisionEnemyLeft(enemy)){
+          this.points += 25;
+          this.enemies.splice(indexEnemy, 1);
+          console.log("segundo if")
+          this.bulletsAll.splice(indexBullet, 1);
+        } else if (bullet.checkCollisionEnemyTop(enemy)){
+          this.points += 25;
+          this.enemies.splice(indexEnemy, 1);
+          console.log("tercero if")
+          this.bulletsAll.splice(indexBullet, 1);
+        } else if (bullet.checkCollisionEnemyBottom(enemy)){
+          this.points += 25;
+          this.enemies.splice(indexEnemy, 1);
+          console.log("cuarto if")
+          this.bulletsAll.splice(indexBullet, 1);
+        };
+      });
+    });
     this.enemies.forEach((enemy, index) => {
       if (enemy.x - enemy.width <=0) {
-        this.enemies.splice(enemy, index)
+        this.enemies.splice(index, 1)
       }
     });
     this.bulletsEnemies.forEach((bullet, indexBullet) => {
       if (bullet.x - bullet.width <=0){
-        this.bulletsEnemies.splice(bullet, indexBullet)
+        this.bulletsEnemies.splice(indexBullet, 1)
       }
     });
-    console.log(this.enemies)
-    console.log(this.bulletsEnemies)
+    this.bulletsAll.forEach((bullet, indexBullet) => {
+      if (bullet.xLeft <=0){
+        console.log("ha salido de los limites izq")
+        this.bulletsAll.splice(indexBullet, 1)
+      } else if(bullet.xRigth >= this.canvas.width){
+        console.log("ha salido de los limites der")
+        this.bulletsAll.splice(indexBullet, 1)
+      } else if(bullet.yTop - bullet.height <= 0){
+        console.log("ha salido de los limites top")
+        this.bulletsAll.splice(indexBullet, 1)
+      } else if(bullet.yBottom >= this.canvas.heigh){
+        console.log("ha salido de los limites bottom")
+        this.bulletsAll.splice(indexBullet, 1)
+      }
+    });
+
+    console.log("newWeapon:",this.bulletsAll)
+    // console.log("enemies:",this.enemies)
+    // console.log("enemiesWeapon:",this.bulletsEnemies)
   };
   gameOverCallback(callback){
     this.onGameOver = callback;
@@ -147,3 +205,13 @@ class Game {
     }
   }
 }
+
+
+
+
+
+
+// this.bulletsAll.push(new BulletAllDirections(this.canvas, (this.player.x + this.player.width), (this.player.y + this.player.height/2)))
+// this.bulletsAll.push(new BulletAllDirections(this.canvas, (this.player.x), (this.player.y + this.player.height/2)))
+// this.bulletsAll.push(new BulletAllDirections(this.canvas, (this.player.x + this.player.width/2), (this.player.y)))
+// this.bulletsAll.push(new BulletAllDirections(this.canvas, (this.player.x + this.player.width/2), (this.player.y + this.player.height)))

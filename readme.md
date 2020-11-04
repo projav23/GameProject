@@ -176,8 +176,15 @@ Pendientes:
    //Añadir boton de controles
    //Hacer que con el tiempo, las naves vayan mas rapido y salgan más
 Movimiento de la nave mas fluido
-Añadir sonido inicial juego - BSO
+   //Añadir sonido inicial juego - BSO
    //Pintar pausa cuando este parado el juego y pulsar p para reanudar
+   Añadir nuevos enemigos
+   Cambiar fondo con el cambio de nivel
+   Nuevas armas
+
+
+   No se eliminan de la pantalla cuando derriban enemigo, pero si del array.
+   Se eleminan todos cuando uno sale de los limites
 
 
 

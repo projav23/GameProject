@@ -7,6 +7,7 @@ const main = () => {
   };
   let buildSplashScreen = () => {
 buildDom(`
+<audio src="sounds/starwras-guerra-de-las-galaxias-peliculas-.mp3" ></audio>
 <h1>STAR WARS<sub>IronHack Wars</sub></h1>
 <div id="titles">
   <div id="titlecontent">
@@ -32,22 +33,35 @@ buildDom(`
         <div class="codeBy"><p>Code by Javier Gómez</p></div>
 </section>
       `)
+
+   setTimeout(() => {
+    document.querySelector("audio").play();
+    document.querySelector("audio").volume = 0.1;
+   }, 3000);
+   
     document.body.style.backgroundImage = "none"
     let startButton = document.querySelector(".button");
     startButton.addEventListener("click", buildGameScreen);
     let controlButton = document.querySelector(".controls");
     controlButton.addEventListener("click", buildControls);
+
   };
   let buildControls = () => {
     buildDom(`
     <section class="controls-screen">
       <div class="howToPlay">Keyboard controls</div>
-     
-      <img  id="keyboard-controls" src="images/control_bien-removebg-preview.png" alt="">
-    
-      <div class="explain"></div>
+      <img  id="keyboard-controls" src="images/control_bien-removebg-preview (1).png" alt="">
+      <div class="explain">
+      <p id="move">Move</p>
+      <p id="shoot">Shoot</p>
+      <p id="pause">Pause/Continue</p>
+      </div>
+      <div class="backMenu">
+      <a href="#">Back</a>
+      </div>
     </section>
     `)
+    document.querySelector(".backMenu").addEventListener("click", buildSplashScreen)
   };
 
   let buildGameScreen = () => {
@@ -91,6 +105,13 @@ buildDom(`
         audio.play();
       }
     }
+    const bulletAllDirections = (event) => {
+      if (event.code === "KeyX"){
+        game.weapon = true;
+        let audio = new Audio("sounds/007132157_prev.mp3");
+        audio.play();
+      }
+    }
     function togglePause(){
       let canvasPause = document.querySelector("canvas");
       let ctxPause = canvasPause.getContext("2d")
@@ -115,6 +136,7 @@ buildDom(`
     document.addEventListener("keydown", setPlayerDirectionY);
     document.addEventListener("keydown", setPlayerDirectionX);
     document.addEventListener("keydown", createBulletPlayer);
+    document.addEventListener("keydown", bulletAllDirections);
   };
   let buildGameOver = (score) => {
     buildDom(`
