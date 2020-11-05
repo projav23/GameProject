@@ -169,7 +169,7 @@
 
 Pendientes:
 
-   //Corregir el lag que hay en el juego
+Corregir el lag que hay en el juego
    //Colocar enemigos en columnas
    //Que los enemigos disparen random
    //Añadir highScores
@@ -178,13 +178,17 @@ Pendientes:
 Movimiento de la nave mas fluido
    //Añadir sonido inicial juego - BSO
    //Pintar pausa cuando este parado el juego y pulsar p para reanudar
-   Añadir nuevos enemigos
-   Cambiar fondo con el cambio de nivel
-   Nuevas armas
+Añadir nuevos enemigos
+Cambiar fondo con el cambio de nivel
+   //Nuevas armas
+   //Hacer que los enemigos se muevan de arriba abajo
+Añadir boss con mas vidas que un disparo 
+Añadir obstaculos que cueste destruir 
+   //Añadir coger vidas
+Crear animaciones de explosiones de naves
 
 
-   No se eliminan de la pantalla cuando derriban enemigo, pero si del array.
-   Se eleminan todos cuando uno sale de los limites
+
 
 
 

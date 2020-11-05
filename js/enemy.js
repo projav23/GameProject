@@ -7,21 +7,27 @@ class Enemy {
     this.x = this.canvas.width
     this.y = y
     this.speed = 1.5
-    this.direction = -1
+    this.directionX = -1
+    this.directionY = 1
     this.width = 40
     this.height = 50
   }
   update(points){
     if (points < 1000){
-    this.x = this.x + this.direction * this.speed;
-    } else if (points >1001){
-      this.x = this.x + this.direction * 3;
+    this.x = this.x + this.directionX * this.speed;
+    } else if (points >1000){
+      this.x = this.x + this.directionX * 3;
     } else if (points > 3000){
-      this.x = this.x + this.direction * 5;
+      this.x = this.x + this.directionX * 5;
     }
-  
+  this.y = this.y - this.directionY
   }
   checkScreen(){
+    if (this.y - this.width <=0){
+      this.directionY = -1
+    } else if (this.y + this.width >= this.canvas.height){
+      this.directionY = 1
+    }
   }
   drawEnemy(){
     let imgEnemy = new Image()

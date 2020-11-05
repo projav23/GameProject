@@ -8,7 +8,7 @@ class BulletEnemies {
     this.width = 30
     this.height = 10
     this.direction = 1
-    this.speed = 6
+    this.speed = 9
   }
   update(){
     this.x = this.x - this.direction * this.speed;

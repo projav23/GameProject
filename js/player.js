@@ -55,4 +55,7 @@ class Player {
   loseLives(){
     this.lives--
   }
+  addLives(){
+    this.lives++
+  }
 }
