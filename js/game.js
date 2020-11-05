@@ -12,6 +12,7 @@ class Game {
     this.bullets = [];
     this.bulletsAll = [];
     this.coins = [];
+    this.explosions = [];
     this.highScore;
     this.bulletsEnemies = [];
     this.isGameOver = false;
@@ -19,12 +20,14 @@ class Game {
     this.bulletOn = false;
     this.pause = false;
     this.weapon = false;
-    this.time = 0
+    this.gameTime = 0
+    
     
 
   }
 
   startLoop(){
+
     this.enemy = new Enemy(this.canvas)
     this.player = new Player(this.canvas, 3);
     this.space = new Space(this.canvas);
@@ -43,7 +46,6 @@ class Game {
     }, 3000);
 
     const loop = () => {
-      this.time++
       if (this.bulletOn && !this.pause){
         this.bullets.push(new Bullet(this.canvas, (this.player.x + this.player.width), (this.player.y + this.player.height/2)))
         this.bulletOn = false;
@@ -59,7 +61,7 @@ class Game {
       }
     
       if (!this.pause){
-        if (Math.floor(Math.random() * 100000) > 99000){
+        if (Math.floor(Math.random() * 100000) > 99850){
           this.coins.push(new Coin(this.canvas, this.canvas.width , Math.floor(Math.random()* this.canvas.height), this.coins))
         }
       this.checkAllCollisions();
@@ -74,7 +76,8 @@ class Game {
 
     window.requestAnimationFrame(loop);
   }
-  updateCanvas(){
+  updateCanvas(dt){
+    this.gameTime += dt
     this.space.update()
     this.bullets.forEach((bullet)=>{
       bullet.update();
@@ -91,6 +94,9 @@ class Game {
     this.coins.forEach((coin)=>{
       coin.update()
     })
+    this.explosions.forEach((explosion, index)=>{
+      explosion.update(index)
+    })
     
   }
   clearCanvas(){
@@ -105,6 +111,9 @@ class Game {
     this.player.drawPlayer()
     this.coins.forEach((coin)=>{
       coin.drawCoin()
+    })
+    this.explosions.forEach((explosion) =>{
+      explosion.drawExplosion()
     })
     this.bullets.forEach((bullet)=>{
       bullet.drawBullet();
@@ -127,6 +136,7 @@ class Game {
     this.enemies.forEach((enemy, index) => {
       if (this.player.checkCollisionEnemy(enemy)) {
         this.player.loseLives();
+        this.explosions.push(new Explosion(this.canvas, enemy.x, enemy.y-enemy.height, this.explosions))
         this.enemies.splice(index, 1);
         if (this.player.lives === 0) {
           this.isGameOver = true;
@@ -140,6 +150,7 @@ class Game {
       this.enemies.forEach((enemy, indexEnemy) => {
         if (bullet.checkCollisionEnemy(enemy)){
           this.points += 25;
+          this.explosions.push(new Explosion(this.canvas, enemy.x, enemy.y-enemy.height, this.explosions))
           this.enemies.splice(indexEnemy, 1);
           this.bullets.splice(indexBullet, 1);
         };
@@ -161,12 +172,18 @@ class Game {
         this.player.addLives()
       }
     })
+    this.coins.forEach((coin, index) => {
+      if (coin.x - coin.widthCoin <=0) {
+        this.coins.splice(index, 1)
+      }
+    });
     this.bulletsAll.forEach((bullet, indexBullet) => {
       this.enemies.forEach((enemy, indexEnemy) => {
         if (bullet.checkCollisionEnemy(enemy)){
           this.points += 25;
+          this.explosions.push(new Explosion(this.canvas, enemy.x, enemy.y-enemy.height, this.explosions))
           this.enemies.splice(indexEnemy, 1);
-          console.log("hay colision")
+ 
           this.bulletsAll.splice(indexBullet, 1);
         }
 
@@ -197,6 +214,9 @@ class Game {
     // })
     console.log("newWeapon:",this.bulletsAll)
     console.log("bulletsPlayer:",this.bullets)
+    console.log("Enemies:",this.enemies)
+    console.log("BulletEnemies:",this.bulletsEnemies)
+    console.log("Explosions:",this.explosions)
     console.log("Monedas:",this.coins)
     console.log("Time:",this.time)
     };

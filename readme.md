@@ -185,7 +185,7 @@ Cambiar fondo con el cambio de nivel
 Añadir boss con mas vidas que un disparo 
 Añadir obstaculos que cueste destruir 
    //Añadir coger vidas
-Crear animaciones de explosiones de naves
+Crear animaciones de explosiones de naves (Como borrarla cuando se acaba la animacion?)
 
 
 

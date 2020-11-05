@@ -33,7 +33,7 @@ main{
   display: flex;
   justify-content: center;
   margin-top: 20%;
-  animation: boton 25s ease-out;
+  animation: boton 1s ease-out;
 }
 @keyframes boton {
   0% { opacity: 0; }
@@ -60,7 +60,7 @@ main{
   display: flex;
   justify-content: center;
   margin-top: 2%;
-  animation: control 25s ease-out;
+  animation: control 1s ease-out;
 }
 @keyframes control {
   0% { opacity: 0; }

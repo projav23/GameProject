@@ -6,9 +6,9 @@ class Player {
     this.ctx = this.canvas.getContext("2d");
     this.x = 10;
     this.y = this.canvas.height/2;
-    this.width = 60;
-    this.height = 40;
-    this.speed = 3;
+    this.width = 200;
+    this.height = 260;
+    this.speed = 5;
     this.lives = lives;
     this.directionY = 1;
     this.directionX = 1;
@@ -21,7 +21,7 @@ class Player {
   }
   drawPlayer(){
     let imgNave = new Image();
-    imgNave.src = "images/labuena-removebg-preview.png"
+    imgNave.src = "images/pnghut_millennium-falcon-star-wars-han-solo-drawing-death-r2d2_j9T0qVDLsG.png"
     this.ctx.drawImage(imgNave, this.x, this.y, this.width, this.height)
   }
   setDirectionY(directionY){

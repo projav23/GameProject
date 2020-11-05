@@ -36,7 +36,7 @@ buildDom(`
 
    setTimeout(() => {
     document.querySelector("audio").play();
-    document.querySelector("audio").volume = 0.1;
+    document.querySelector("audio").volume = 0.01;
    }, 3000);
    
     document.body.style.backgroundImage = "none"
@@ -82,10 +82,10 @@ buildDom(`
     game.startLoop();
     const setPlayerDirectionY = (event) => {
       if (event.code === "ArrowUp") {
-        game.player.setDirectionY(-5);
+        game.player.setDirectionY(-20);
         game.player.updateY()
       } else if (event.code === "ArrowDown") {
-        game.player.setDirectionY(5);
+        game.player.setDirectionY(20);
         game.player.updateY()
       } 
     };
@@ -102,6 +102,7 @@ buildDom(`
       if (event.code === "Space"){
         game.bulletOn = true;
         let audio = new Audio("sounds/007132157_prev.mp3");
+        audio.volume = 0.01;
         audio.play();
       }
     }
@@ -109,6 +110,7 @@ buildDom(`
       if (event.code === "KeyX"){
         game.weapon = true;
         let audio = new Audio("sounds/007132157_prev.mp3");
+        audio.volume = 0.01;
         audio.play();
       }
     }
