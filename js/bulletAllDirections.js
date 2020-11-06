@@ -42,7 +42,7 @@ class BulletRigth{
     this.width = 100
     this.height = 20
     this.direction = 1
-    this.speed = 4
+    this.speed = 9
     this.x = x;
     this.y = y
   }
@@ -76,7 +76,7 @@ class BulletTop{
     this.width = 100
     this.height = 20
     this.direction = 1
-    this.speed = 4
+    this.speed = 9
     this.x = x;
     this.y = y
   }
@@ -110,7 +110,7 @@ class BulletBottom{
     this.width = 100
     this.height = 20
     this.direction = 1
-    this.speed = 4
+    this.speed = 9
     this.x = x;
     this.y = y
   }

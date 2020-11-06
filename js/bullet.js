@@ -9,7 +9,7 @@ class Bullet {
     this.width = 100
     this.height = 20
     this.direction = 1
-    this.speed = 8
+    this.speed = 9
   }
   update(){
     this.x = this.x + this.direction * this.speed;

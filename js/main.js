@@ -68,8 +68,11 @@ buildDom(`
     buildDom(`
         <section class="game-screen">
             <canvas></canvas>
+            <audio src="sounds/la-brisa_1.mp3" loop></audio>
         </section>
         `);
+    document.querySelector("audio").volume = 0.03
+    document.querySelector("audio").play()
     document.body.style.backgroundImage = "none"
     //document.querySelector(".game-screen").style.height = "790px";
     let width = document.querySelector("main").offsetWidth;
@@ -80,24 +83,40 @@ buildDom(`
     const game = new Game(canvas);
     game.gameOverCallback(buildGameOver);
     game.startLoop();
-    const setPlayerDirectionY = (event) => {
-      if (event.code === "ArrowUp") {
-        game.player.setDirectionY(-20);
-        game.player.updateY()
-      } else if (event.code === "ArrowDown") {
-        game.player.setDirectionY(20);
-        game.player.updateY()
-      } 
-    };
-    const setPlayerDirectionX = (event) => {
-      if (event.code === "ArrowRight") {
-        game.player.setDirectionX(20);
-        game.player.updateX()
-      } else if (event.code === "ArrowLeft") {
-        game.player.setDirectionX(-20);
-        game.player.updateX()
-      } 
-    };
+    // const setPlayerDirectionY = (event) => {
+    //   if (event.code === "ArrowUp") {
+    //     if (game.player.velY >  -game.player.speed) {
+    //       game.player.velY--;
+    //     }
+    //     game.player.velY *= game.player.friction;
+    //     game.player.y += game.player.velY;
+    //     //game.player.setDirectionY(1);
+    //     //game.player.updateY()
+    //   } else if (event.code === "ArrowDown") {
+    //     if (game.player.velY < game.player.speed) {
+    //       game.player.velY++;
+    //     }
+    //     game.player.velY *= game.player.friction;
+    //     game.player.y += game.player.velY;
+    //     //game.player.setDirectionY(-1);
+    //     //game.player.updateY()
+    //   } 
+    // };
+    // const setPlayerDirectionX = (event) => {
+    //   if (event.code === "ArrowRight") {
+    //     if (player.velX < player.speed) {
+    //       player.velX++;
+    //   }
+    //     //game.player.setDirectionX(20);
+    //     //game.player.updateX()
+    //   } else if (event.code === "ArrowLeft") {
+    //     if (player.velX > -player.speed) {
+    //       player.velX--;
+    //   }
+    //     //game.player.setDirectionX(-20);
+    //     //game.player.updateX()
+    //   } 
+    // };
     const createBulletPlayer = (event) => {
       if (event.code === "Space"){
         game.bulletOn = true;
@@ -135,8 +154,14 @@ buildDom(`
       }
     }
     document.addEventListener("keydown", pausedGame);
-    document.addEventListener("keydown", setPlayerDirectionY);
-    document.addEventListener("keydown", setPlayerDirectionX);
+    //document.addEventListener("keydown", setPlayerDirectionY);
+    document.addEventListener("keydown", function(e) {
+      game.player.keys[e.keyCode] = true;
+    });
+    document.addEventListener("keyup", function(e) {
+      game.player.keys[e.keyCode] = false;
+    });
+    //document.addEventListener("keydown", setPlayerDirectionX);
     document.addEventListener("keydown", createBulletPlayer);
     document.addEventListener("keydown", bulletAllDirections);
   };

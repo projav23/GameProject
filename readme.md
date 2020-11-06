@@ -169,23 +169,25 @@
 
 Pendientes:
 
-Corregir el lag que hay en el juego
+   //Corregir el lag que hay en el juego
    //Colocar enemigos en columnas
    //Que los enemigos disparen random
    //Añadir highScores
    //Añadir boton de controles
    //Hacer que con el tiempo, las naves vayan mas rapido y salgan más
-Movimiento de la nave mas fluido
+   //Movimiento de la nave mas fluido
    //Añadir sonido inicial juego - BSO
    //Pintar pausa cuando este parado el juego y pulsar p para reanudar
 Añadir nuevos enemigos
-Cambiar fondo con el cambio de nivel
    //Nuevas armas
    //Hacer que los enemigos se muevan de arriba abajo
 Añadir boss con mas vidas que un disparo 
 Añadir obstaculos que cueste destruir 
    //Añadir coger vidas
-Crear animaciones de explosiones de naves (Como borrarla cuando se acaba la animacion?)
+   //Crear animaciones de explosiones de naves (Como borrarla cuando se acaba la animacion?)
+Añadir sonidos movimiento de la nave
+Cambiar la nave por un sprite
+Añadir sonido al dar al boton de restar de no me falle general
 
 
 

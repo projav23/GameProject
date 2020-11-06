@@ -54,6 +54,9 @@ class Coin {
     const collideTop = this.y + this.heightCoin / 2 > player.y;
     const collideBottom = this.y - this.heightCoin / 2 < player.y + player.height;
     if (collideRight && collideLeft && collideTop && collideBottom) {
+      let audio = new Audio("sounds/mario-coin.mp3");
+      audio.volume = 0.01;
+      audio.play();
       return true;
     }
     return false;

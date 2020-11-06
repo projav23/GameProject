@@ -28,6 +28,7 @@ class Game {
 
   startLoop(){
 
+  
     this.enemy = new Enemy(this.canvas)
     this.player = new Player(this.canvas, 3);
     this.space = new Space(this.canvas);
@@ -77,8 +78,10 @@ class Game {
     window.requestAnimationFrame(loop);
   }
   updateCanvas(dt){
-    this.gameTime += dt
+   
     this.space.update()
+    this.player.update()
+    //this.player.renderAnimation()
     this.bullets.forEach((bullet)=>{
       bullet.update();
     })
