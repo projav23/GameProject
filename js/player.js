@@ -6,8 +6,8 @@ class Player {
     this.ctx = this.canvas.getContext("2d");
     this.x = 10;
     this.y = this.canvas.height/2;
-    this.width = 120;
-    this.height = 160;
+    this.width = 80;
+    this.height = 100;
     this.velY = 0;
     this.velX = 0
     this.speed = 4;
@@ -77,7 +77,7 @@ class Player {
   }
   drawPlayer(){
     let imgNave = new Image();
-    imgNave.src = "images/pnghut_millennium-falcon-star-wars-han-solo-drawing-death-r2d2_j9T0qVDLsG.png"
+    imgNave.src = "images/dcgy0x5-d77268be-ab04-4b52-bb78-292b089abe53.png"
     this.ctx.drawImage(imgNave, this.x, this.y, this.width, this.height)
     // this.ctx.drawImage(
     //   imgNave,

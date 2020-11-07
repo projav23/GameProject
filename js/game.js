@@ -28,7 +28,6 @@ class Game {
 
   startLoop(){
 
-  
     this.enemy = new Enemy(this.canvas)
     this.player = new Player(this.canvas, 3);
     this.space = new Space(this.canvas);
