@@ -7,7 +7,7 @@ class Player {
     this.x = 10;
     this.y = this.canvas.height/2;
     this.width = 80;
-    this.height = 100;
+    this.height = 120;
     this.velY = 0;
     this.velX = 0
     this.speed = 4;
@@ -16,12 +16,12 @@ class Player {
     this.directionY = 0;
     this.directionX = 0;
     this.keys = [];
-    // this.widthSprite = 800;
-    // this.heightSprite = 100;
-    // this.ticksPerFrame = 4;
-    // this.numberOfFrames = 4;
-    // this.frameIndex = 0;
-    // this.tickCount = 0;
+    this.widthSprite = 1304;
+    this.heightSprite = 616;
+    this.ticksPerFrame = 2;
+    this.numberOfFrames = 2;
+    this.frameIndex = 0;
+    this.tickCount = 0;
   }
   update(){
     if (this.keys[38]){
@@ -73,18 +73,18 @@ class Player {
   }
   drawPlayer(){
     let imgNave = new Image();
-    imgNave.src = "images/dcgy0x5-d77268be-ab04-4b52-bb78-292b089abe53.png"
-    this.ctx.drawImage(imgNave, this.x, this.y, this.width, this.height)
-    // this.ctx.drawImage(
-    //   imgNave,
-    //   this.frameIndex * this.widthSprite / this.numberOfFrames,
-    //   0,
-    //   this.widthSprite / this.numberOfFrames,
-    //   this.heightSprite,
-    //   this.x,
-    //   this.y,
-    //   this.width,
-    //   this.height)
+    imgNave.src = "images/spritesheet (2).png"
+    //this.ctx.drawImage(imgNave, this.x, this.y, this.width, this.height)
+    this.ctx.drawImage(
+      imgNave,
+      this.frameIndex * this.widthSprite / this.numberOfFrames,
+      0,
+      this.widthSprite / this.numberOfFrames,
+      this.heightSprite,
+      this.x,
+      this.y,
+      this.width,
+      this.height)
   }
   setDirectionY(directionY){
     this.directionY = directionY

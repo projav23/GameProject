@@ -45,7 +45,7 @@ class Game {
     this.intervalIDRock = setInterval(() => {
       if (!this.pause){
       let y = Math.floor(Math.random()* this.canvas.height)
-      this.rocks.push(new Rock(this.canvas, this.canvas.width, y))
+      this.rocks.push(new Rock(this.canvas, this.canvas.width, y, 2))
       }
     }, 5000);
     
@@ -77,7 +77,6 @@ class Game {
         if (Math.floor(Math.random() * 100000) > 99850){
           this.coins.push(new Coin(this.canvas, this.canvas.width , Math.floor(Math.random()* this.canvas.height)))
         }
-   
       this.checkAllCollisions();
       this.updateCanvas();
       this.clearCanvas();
@@ -92,6 +91,7 @@ class Game {
   updateCanvas(dt){
     this.space.update()
     this.player.update()
+    this.player.renderAnimation()
     this.bullets.forEach((bullet)=>{
       bullet.update();
     })
@@ -154,16 +154,21 @@ class Game {
     })
   }
   checkAllCollisions(){
+    //Comprobar si el enemigo choca con los limites
     this.enemies.forEach((enemy)=>{
       enemy.checkScreen()
     })
+    //Comprobar si el player choca con los limites
     this.player.checkScreen();
+    //Comprobar si los enemigos se chocan con el jugador
     this.enemies.forEach((enemy, index) => {
       if (this.player.checkCollisionEnemy(enemy)) {
+        //Pierde vidas
         this.player.loseLives();
         this.explosions.push(new Explosion(this.canvas, enemy.x, enemy.y-enemy.height, this.explosions))
         this.enemies.splice(index, 1);
         if (this.player.lives === 0) {
+          //Se acaba el juego si no tiene vidas
           this.isGameOver = true;
           this.highScores()
           this.onGameOver(this.points);
@@ -171,6 +176,7 @@ class Game {
         }
       }
     });
+    //Comprobar si las balas normales (space) chocan con los enemigos
     this.bullets.forEach((bullet, indexBullet) => {
       this.enemies.forEach((enemy, indexEnemy) => {
         if (bullet.checkCollisionEnemy(enemy)){
@@ -181,9 +187,11 @@ class Game {
         };
       });
     });
+    //Comprobar si las balas enemigas chocan con el player
     this.bulletsEnemies.forEach((bullet, i)=>{
       if (bullet.checkCollisionEnemy(this.player)){
         this.bulletsEnemies.splice(i, 1)
+        //Si chocan se acaba el juego
         this.isGameOver = true;
         this.highScores()
         this.onGameOver(this.points)
@@ -191,16 +199,49 @@ class Game {
         
       }
     })
+    //Comprobar si las rocas chocan con los disparos y quitarle una vida a la roca
+    this.bullets.forEach((bullet, index) => {
+      this.rocks.forEach((rock, i) => {
+        if (rock.checkCollisionEnemy(bullet)){
+          rock.loseLives()
+          this.bullets.splice(index,1)
+          if (rock.lives === 0){
+            this.rocks.splice(i, 1);
+          }
+        };
+      });
+    });
+    //Comprobar si las rocas chocan con los disparos y quitarle una vida a la roca
+    this.bulletsAll.forEach((bullet, index) => {
+      this.rocks.forEach((rock, i) => {
+        if (rock.checkCollisionEnemy(bullet)){
+          rock.loseLives()
+          this.bulletsAll.splice(index,1)
+          if (rock.lives === 0){
+            this.rocks.splice(i, 1);
+          }
+        };
+      });
+    });
+    //Comprobar si las rocas chocan con los disparos y quitarle una vida a la roca
+    this.doubleBullet.forEach((bullet, index) => {
+      this.rocks.forEach((rock, i) => {
+        if (rock.checkCollisionEnemy(bullet)){
+          rock.loseLives()
+          this.doubleBullet.splice(index,1)
+          if (rock.lives === 0){
+            this.rocks.splice(i, 1);
+          }
+        };
+      });
+    });
+
+    //Comprobar si las rocas chocan con el jugador
     this.rocks.forEach((rock, index)=>{
       if (rock.checkCollisionEnemy(this.player)){
+        //Si chocan pierdes vida
         this.player.loseLives();
         this.rocks.splice(index,1)
-      }
-    })
-    this.coins.forEach((coin, index) => {
-      if (coin.checkCollisionEnemy(this.player)){
-        this.coins.splice(index,1)
-        this.player.addLives()
         if (this.player.lives === 0) {
           this.isGameOver = true;
           this.highScores()
@@ -209,7 +250,14 @@ class Game {
         }
       }
     })
-
+    //Comprobar si ganas una moneda
+    this.coins.forEach((coin, index) => {
+      if (coin.checkCollisionEnemy(this.player)){
+        this.coins.splice(index,1)
+        this.player.addLives()
+      }
+    })
+    //Comprobar si el ataque de 4 balas choca con un enemigo
     this.bulletsAll.forEach((bullet, indexBullet) => {
       this.enemies.forEach((enemy, indexEnemy) => {
         if (bullet.checkCollisionEnemy(enemy)){
@@ -220,6 +268,7 @@ class Game {
         }
       })
     });
+    //Comprobar si las dos balas chocan con un enemigo
     this.doubleBullet.forEach((bullet, indexBullet) => {
       this.enemies.forEach((enemy, indexEnemy) => {
         if (bullet.checkCollisionEnemy(enemy)){
@@ -236,33 +285,38 @@ class Game {
         this.coins.splice(index, 1)
       }
     });
+    //Borrar si salen de los limites
     this.rocks.forEach((rock, index) => {
       if (rock.x - rock.widthRock <=0) {
         this.rocks.splice(index, 1)
       }
     });
+    //Borrar si salen de los limites
     this.enemies.forEach((enemy, index) => {
       if (enemy.x - enemy.width <=0) {
         this.enemies.splice(index, 1)
       }
     });
+    //Borrar si salen de los limites
     this.bulletsEnemies.forEach((bullet, indexBullet) => {
       if (bullet.x - bullet.width <=0){
         this.bulletsEnemies.splice(indexBullet, 1)
       }
     });
-
+    //Borrar si salen de los limites
     for (let i = 0; i < this.bulletsAll.length; i++){
       let bullet = this.bulletsAll[i];
       if (bullet.x < 0 || bullet.x > this.canvas.width || bullet.y > this.canvas.height || bullet.y < 0){
         this.bulletsAll.splice(i, 1)
       }
     }
+    //Borrar si salen de los limites
     this.doubleBullet.forEach((bullet, index)=>{
       if (bullet.x + bullet.width > this.canvas.width){
         this.doubleBullet.splice(index, 1)
       }
     })
+    //Borrar si salen de los limites
     this.bullets.forEach((bullet, index)=>{
       if (bullet.x + bullet.width > this.canvas.width){
         this.bullets.splice(index, 1)
@@ -284,6 +338,7 @@ class Game {
     clearInterval(this.intervalIDEnemy)
     this.onGameOver = callback;
   };
+  //Añadir highScore cuando acaba el juego
   highScores(){
     if(localStorage.getItem("highscore") !== null){
       if (this.points > localStorage.getItem("highscore")) {

@@ -182,7 +182,7 @@ Añadir nuevos enemigos
    //Nuevas armas
    //Hacer que los enemigos se muevan de arriba abajo
 Añadir boss con mas vidas que un disparo 
-Añadir obstaculos que cueste destruir 
+   //Añadir obstaculos que cueste destruir 
    //Añadir coger vidas
    //Crear animaciones de explosiones de naves (Como borrarla cuando se acaba la animacion?)
    //Añadir sonidos movimiento de la nave
