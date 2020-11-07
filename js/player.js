@@ -24,10 +24,6 @@ class Player {
     // this.tickCount = 0;
   }
   update(){
-    // let audio = new Audio("sounds/002873509_prev.mp3");
-    // audio.volume = 0.01;
-    // let audio = new Audio("sounds/maquina_3.mp3")
-    // audio.volume = 0.01
     if (this.keys[38]){
       if (this.velY > (-this.speed)) {
         this.velY--;

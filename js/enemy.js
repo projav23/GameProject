@@ -13,12 +13,12 @@ class Enemy {
     this.height = 50
   }
   update(points){
-    if (points < 1000){
+    if (points <= 1000){
     this.x = this.x + this.directionX * this.speed;
     } else if (points >1000){
-      this.x = this.x + this.directionX * 3;
-    } else if (points > 3000){
       this.x = this.x + this.directionX * 5;
+    } else if (points > 3000){
+      this.x = this.x + this.directionX * 10;
     }
   this.y = this.y - this.directionY
   }
@@ -35,3 +35,4 @@ class Enemy {
     this.ctx.drawImage(imgEnemy, this.x, this.y, this.width, this.height)
   }
 }
+

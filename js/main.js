@@ -5,6 +5,10 @@ const main = () => {
     const main = document.querySelector("main");
     main.innerHTML = html;
   };
+  function madeTheForce(){
+    let audio = new Audio("sounds/Every Time 'May The Force Be With You' Is Said In Star Wars (mp3cut.net).mp3")
+    audio.play()
+  }
   let buildSplashScreen = () => {
 buildDom(`
 <audio src="sounds/starwras-guerra-de-las-galaxias-peliculas-.mp3" ></audio>
@@ -42,6 +46,7 @@ buildDom(`
     document.body.style.backgroundImage = "none"
     let startButton = document.querySelector(".button");
     startButton.addEventListener("click", buildGameScreen);
+    startButton.addEventListener("click", madeTheForce);
     let controlButton = document.querySelector(".controls");
     controlButton.addEventListener("click", buildControls);
 
@@ -65,7 +70,8 @@ buildDom(`
   };
 
   let buildGameScreen = () => {
-    buildDom(`
+    setTimeout(() => {
+      buildDom(`
         <section class="game-screen">
             <canvas></canvas>
             <audio src="sounds/la-brisa_1.mp3" loop></audio>
@@ -125,6 +131,14 @@ buildDom(`
         audio.play();
       }
     }
+    const createDoubleBulletPlayer = (event) => {
+      if (event.code === "KeyC"){
+        game.doubleBulletOn = true;
+        let audio = new Audio("sounds/008827459_prev.mp3");
+        audio.volume = 0.01;
+        audio.play();
+      }
+    }
     const bulletAllDirections = (event) => {
       if (event.code === "KeyX"){
         game.weapon = true;
@@ -163,8 +177,16 @@ buildDom(`
     });
     //document.addEventListener("keydown", setPlayerDirectionX);
     document.addEventListener("keydown", createBulletPlayer);
+    document.addEventListener("keydown", createDoubleBulletPlayer);
     document.addEventListener("keydown", bulletAllDirections);
-  };
+  
+    }, 3000);
+  }
+    
+  let createAudioRestart = () =>{
+    const audio = new Audio("sounds/Star Wars - Efectos de sonido - Dont fail me again.mp3")
+    audio.play();
+  }
   let buildGameOver = (score) => {
     buildDom(`
             <video id="myVideo" src="images/JAvi pesado.m4v" autoplay></video>
@@ -189,7 +211,9 @@ buildDom(`
     //document.querySelector("#myVideo").style.backgroundSize = "cover"
     let restartBtn = document.querySelector(".restart");
     let menuBtn = document.querySelector(".menu");
+    restartBtn.addEventListener("click", createAudioRestart)
     restartBtn.addEventListener("click", buildGameScreen)
+ 
     menuBtn.addEventListener("click", buildSplashScreen)
   };
   buildSplashScreen();

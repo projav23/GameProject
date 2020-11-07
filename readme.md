@@ -187,7 +187,8 @@ Añadir obstaculos que cueste destruir
    //Crear animaciones de explosiones de naves (Como borrarla cuando se acaba la animacion?)
    //Añadir sonidos movimiento de la nave
 Atravesar paredes
-Añadir sonido al dar al boton de restar de no me falle general
+   //Añadir sonido al dar al boton de restar de no me falle general
+   //Añadir nueva arma que dispare de los extremos de la nave
 
 
 
