@@ -34,15 +34,14 @@ buildDom(`
         <div class="controls">
           <a href="#">How to play</a>
         </div>
-        <div class="codeBy"><p>Code by Javier Gómez</p></div>
+        <img src="images/anakin.png" alt="Anakin">
 </section>
       `)
 
-   setTimeout(() => {
+  setTimeout(() => {
     document.querySelector("audio").play();
     document.querySelector("audio").volume = 0.01;
-   }, 3000);
-   
+  },2000);
     document.body.style.backgroundImage = "none"
     let startButton = document.querySelector(".button");
     startButton.addEventListener("click", buildGameScreen);
@@ -60,6 +59,8 @@ buildDom(`
       <p id="move">Move</p>
       <p id="shoot">Shoot</p>
       <p id="pause">Pause/Continue</p>
+      <p id="double">Double Shoot</p>
+      <p id="four">Special Shoot</p>
       </div>
       <div class="backMenu">
       <a href="#">Back</a>
@@ -77,7 +78,7 @@ buildDom(`
             <audio src="sounds/la-brisa_1.mp3" loop></audio>
         </section>
         `);
-    document.querySelector("audio").volume = 0.04
+    document.querySelector("audio").volume = 0.02
     document.querySelector("audio").play()
     document.body.style.backgroundImage = "none"
     //document.querySelector(".game-screen").style.height = "790px";
@@ -89,40 +90,6 @@ buildDom(`
     const game = new Game(canvas);
     game.gameOverCallback(buildGameOver);
     game.startLoop();
-    // const setPlayerDirectionY = (event) => {
-    //   if (event.code === "ArrowUp") {
-    //     if (game.player.velY >  -game.player.speed) {
-    //       game.player.velY--;
-    //     }
-    //     game.player.velY *= game.player.friction;
-    //     game.player.y += game.player.velY;
-    //     //game.player.setDirectionY(1);
-    //     //game.player.updateY()
-    //   } else if (event.code === "ArrowDown") {
-    //     if (game.player.velY < game.player.speed) {
-    //       game.player.velY++;
-    //     }
-    //     game.player.velY *= game.player.friction;
-    //     game.player.y += game.player.velY;
-    //     //game.player.setDirectionY(-1);
-    //     //game.player.updateY()
-    //   } 
-    // };
-    // const setPlayerDirectionX = (event) => {
-    //   if (event.code === "ArrowRight") {
-    //     if (player.velX < player.speed) {
-    //       player.velX++;
-    //   }
-    //     //game.player.setDirectionX(20);
-    //     //game.player.updateX()
-    //   } else if (event.code === "ArrowLeft") {
-    //     if (player.velX > -player.speed) {
-    //       player.velX--;
-    //   }
-    //     //game.player.setDirectionX(-20);
-    //     //game.player.updateX()
-    //   } 
-    // };
     const createBulletPlayer = (event) => {
       if (event.code === "Space"){
         game.bulletOn = true;
@@ -154,10 +121,10 @@ buildDom(`
         game.pause = true;
         ctxPause.fillStyle = "rgba(155, 155, 155, 0.322)";
         ctxPause.font = '80px "Droid Sans", arial, verdana, sans-serif';
-        ctxPause.fillText(`Game paused`,canvasPause.width/2 -200, canvasPause.height/2);
+        ctxPause.fillText(`Game paused`,canvasPause.width/2 -250, canvasPause.height/2);
         ctxPause.fillStyle = "rgba(155, 155, 155, 1)";
         ctxPause.font = '20px "Droid Sans", arial, verdana, sans-serif';
-        ctxPause.fillText("Press key P to continue again",canvasPause.width/2 -60, canvasPause.height/2 + 60)
+        ctxPause.fillText("Press key P to continue again",canvasPause.width/2 -120, canvasPause.height/2 + 60)
       } else if (game.pause){
         game.pause= false;
       }
@@ -168,23 +135,20 @@ buildDom(`
       }
     }
     document.addEventListener("keydown", pausedGame);
-    //document.addEventListener("keydown", setPlayerDirectionY);
     document.addEventListener("keydown", function(e) {
       game.player.keys[e.keyCode] = true;
     });
     document.addEventListener("keyup", function(e) {
       game.player.keys[e.keyCode] = false;
     });
-    //document.addEventListener("keydown", setPlayerDirectionX);
     document.addEventListener("keydown", createBulletPlayer);
     document.addEventListener("keydown", createDoubleBulletPlayer);
     document.addEventListener("keydown", bulletAllDirections);
   
-    }, 3000);
+    }, 2000);
   }
-    
   let createAudioRestart = () =>{
-    const audio = new Audio("sounds/Star Wars - Efectos de sonido - Dont fail me again.mp3")
+    const audio = new Audio("sounds/Star Wars - Efectos de sonido - Dont fail me again (mp3cut.net).mp3")
     audio.play();
   }
   let buildGameOver = (score) => {
@@ -208,12 +172,10 @@ buildDom(`
             </section>
             `);
     document.body.style.backgroundImage = "none)"
-    //document.querySelector("#myVideo").style.backgroundSize = "cover"
     let restartBtn = document.querySelector(".restart");
     let menuBtn = document.querySelector(".menu");
     restartBtn.addEventListener("click", createAudioRestart)
     restartBtn.addEventListener("click", buildGameScreen)
- 
     menuBtn.addEventListener("click", buildSplashScreen)
   };
   buildSplashScreen();

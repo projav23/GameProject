@@ -18,7 +18,7 @@ class Player {
     this.keys = [];
     this.widthSprite = 1304;
     this.heightSprite = 616;
-    this.ticksPerFrame = 2;
+    this.ticksPerFrame = 6;
     this.numberOfFrames = 2;
     this.frameIndex = 0;
     this.tickCount = 0;
@@ -52,9 +52,6 @@ class Player {
     this.y += this.velY;
     this.velX *= this.friction;
     this.x += this.velX;
-      
-
-    //this.y = this.y + this.directionY * this.speed;
   }
 
   renderAnimation(){
@@ -94,9 +91,11 @@ class Player {
   }
   checkScreen(){
     if (this.y  <= 0){
-      this.y = 10 ;
-    }else if (this.y  >= this.canvas.height - 90){
-      this.y = this.canvas.height - 90 
+      //this.y = 10 ;
+      this.y = this.canvas.height
+    }else if (this.y  >= this.canvas.height){//90
+      this.y = 0;
+      //this.y = this.canvas.height - 90 
     } 
     if (this.x + this.width >= this.canvas.width){
       this.y = this.canvas.width - this.width

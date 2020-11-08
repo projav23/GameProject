@@ -45,8 +45,7 @@ class Coin {
       this.y,
       this.widthCoin,
       this.heightCoin)
-      //this.width / this.numberOfFrames,
-      //this.height);
+
   };
   checkCollisionEnemy(player){
     const collideRight = this.x + this.widthCoin / 2 > player.x - player.width / 2;
@@ -63,7 +62,6 @@ class Coin {
   }
 
 }
-
 
 class Explosion{
   constructor(canvas, x, y, explosions){
@@ -110,8 +108,6 @@ class Explosion{
       this.y,
       this.widthExplosion,
       this.heightExplosion)
-      //this.width / this.numberOfFrames,
-      //this.height);
   };
 }
 
@@ -162,8 +158,6 @@ class Rock {
       this.y,
       this.widthRock,
       this.heightRock)
-      //this.width / this.numberOfFrames,
-      //this.height);
   };
   checkCollisionEnemy(enemy){
     const collideRight = this.x + this.widthRock / 2 > enemy.x - enemy.width / 2;
@@ -175,36 +169,6 @@ class Rock {
     }
     return false;
   }
-  // checkCollisionBullet(bullet){
-  //   const collideRight = this.x + this.widthRock / 2 > bullet.x - bullet.width / 2;
-  //   const collideLeft = this.x - this.widthRock / 2 < bullet.x + bullet.width / 2;
-  //   const collideTop = this.y + this.heightRock / 2 > bullet.y;
-  //   const collideBottom = this.y - this.heightRock / 2 < bullet.y + bullet.height;
-  //   if (collideRight && collideLeft && collideTop && collideBottom) {
-  //     return true;
-  //   }
-  //   return false;
-  // }
-  // checkCollisionDoubleBullet(bullet){
-  //   const collideRight = this.x + this.widthRock / 2 > bullet.x - bullet.width / 2;
-  //   const collideLeft = this.x - this.widthRock / 2 < bullet.x + bullet.width / 2;
-  //   const collideTop = this.y + this.heightRock / 2 > bullet.y;
-  //   const collideBottom = this.y - this.heightRock / 2 < bullet.y + bullet.height;
-  //   if (collideRight && collideLeft && collideTop && collideBottom) {
-  //     return true;
-  //   }
-  //   return false;
-  // }
-  // checkCollisionAllBullet(bullet){
-  //   const collideRight = this.x + this.widthRock / 2 > bullet.x - bullet.width / 2;
-  //   const collideLeft = this.x - this.widthRock / 2 < bullet.x + bullet.width / 2;
-  //   const collideTop = this.y + this.heightRock / 2 > bullet.y;
-  //   const collideBottom = this.y - this.heightRock / 2 < bullet.y + bullet.height;
-  //   if (collideRight && collideLeft && collideTop && collideBottom) {
-  //     return true;
-  //   }
-  //   return false;
-  // }
   loseLives(){
     this.lives--;
   }

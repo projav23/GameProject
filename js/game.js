@@ -30,6 +30,7 @@ class Game {
 
   startLoop(){
 
+
     this.enemy = new Enemy(this.canvas)
     this.player = new Player(this.canvas, 3);
     this.space = new Space(this.canvas);
@@ -126,7 +127,7 @@ class Game {
     this.ctx.fillStyle = "#ff6";
     this.ctx.font = '30px "Droid Sans", arial, verdana, sans-serif';
     this.ctx.fillText(`Score: ${this.points}`,this.canvas.width -200, this.canvas.height -10);
-    this.ctx.fillText(`Remaining coins: ${this.player.lives}`,this.canvas.width/2 -50, this.canvas.height -10);
+    this.ctx.fillText(`Insert coins: ${this.player.lives}`,this.canvas.width/2 -100, this.canvas.height -10);
     this.player.drawPlayer()
     this.coins.forEach((coin)=>{
       coin.drawCoin()
