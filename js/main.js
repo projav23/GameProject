@@ -15,16 +15,12 @@ buildDom(`
 <h1>STAR WARS<sub>IronHack Wars</sub></h1>
 <div id="titles">
   <div id="titlecontent">
-    <p class="center">EPISODIO CUARENTENA<br/>
-      Una nueva esperanza</p>
-    <p>En una galaxia lejana...</p>
-    <p>Un soldado imperial es la unica esperando para acabar con todo el ejercito de la Republica.</p>
-    <p>Lorem ipsum .</p>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc rutrum urna in ante ultricies malesuada. Curabitur pretium enim in lacus tempus tempor. Fusce sit amet lorem odio. Morbi molestie mauris non ex lobortis porttitor. Phasellus et sodales sapien, ut lacinia velit. In sagittis vitae quam et cursus. Aenean at nunc nunc. Cras pulvinar consequat congue. Vestibulum feugiat magna a tellus venenatis ultrices. Quisque ex nisl, pellentesque in massa sed, auctor consectetur purus. Suspendisse eget elementum tellus. In eu dui sed mauris vulputate dictum ac quis nisl. Duis venenatis iaculis consequat. Sed id eleifend quam. Donec sodales enim condimentum odio facilisis, sit amet vestibulum quam sodales.</p>
-    <p class="center"></p>
-    <p></p>
-    <p class="center"></p>
-    <p>No has podido leer todo porque va muy rapido</p>
+    <p class="center">Episode III<br/>
+      REVENGE OF THE SITH</p>
+    <p>War! The Republic is crumbling under attacks by the ruthless Sith Lord, Count Dooku.</p>
+    <p>There are heroes on both sides. Evil is everywhere</p>
+    <p>In a stunning move, the fiendish droid leader, General Grievous, has swept into the Republic capital and kidnapped Chancellor Palpatine, leader of the Galactic Senate.</p>
+    <p>As the Separatist Droid Army attempts to flee the besieged capital with their valuable hostage, two Jedi Knights leas a desperate mission to rescue the captive Chancellor...</p>
     </div>
 </div>
 <section class="splash-screen">

@@ -31,7 +31,7 @@ main{
   100% { opacity: 1; }
 }
 
-img {
+.splash-screen img {
   margin-left: 20%;
   margin-top: 15%;
   animation: anakin 26s ease-out;
@@ -265,7 +265,8 @@ h1 sub{
   padding:20px 40px;
 }
 .restart a:hover{
-  border: 1px solid #ff6
+  border: 5px solid #ff6;
+  border-radius: 25px;
 }
 .menu{
   position:relative;
@@ -294,7 +295,8 @@ h1 sub{
   padding:20px 40px;
 }
 .menu a:hover{
-  border: 1px solid #ff6
+  border: 5px solid #ff6;
+  border-radius: 25px;
 }
 .finalGame {
   font-family: "Droid Sans", arial, verdana, sans-serif;
@@ -379,12 +381,12 @@ h1 sub{
   position:relative;
   display: flex;
   
-  margin-top: 3%;
+  margin-top: 12%;
   margin-left: 1%;
-  animation: control 1s ease-out;
+  /* animation: control 1s ease-out; */
 }
 .backMenu a{
-  color:white;
+  color:#ff6;
   font-family:"Droid Sans", arial, verdana, sans-serif;
   font-weight:bold;
   font-size:36px;
@@ -394,7 +396,8 @@ h1 sub{
   display:block;
   position:relative;
   padding:20px 40px;
-  border: 1px solid white;
+  border: 1px solid #ff6;
+  border-radius: 25px;
 }
 .explain{
   display: flex;
@@ -407,6 +410,7 @@ h1 sub{
   margin-left: 2%;
   padding: 10px 0 10px 0;
   color: white;
+  margin-top: 5%;
 }
 #move{
   border: 2px solid red;

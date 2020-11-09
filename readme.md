@@ -178,7 +178,6 @@ Pendientes:
    //Movimiento de la nave mas fluido
    //Añadir sonido inicial juego - BSO
    //Pintar pausa cuando este parado el juego y pulsar p para reanudar
-Añadir nuevos enemigos
    //Nuevas armas
    //Hacer que los enemigos se muevan de arriba abajo
 Añadir boss con mas vidas que un disparo 
@@ -189,6 +188,7 @@ Añadir boss con mas vidas que un disparo
    //Atravesar paredes
    //Añadir sonido al dar al boton de restar de no me falle general
    //Añadir nueva arma que dispare de los extremos de la nave
+Cuando está pausa que no se oigan los sonidos
 
 
 

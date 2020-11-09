@@ -15,8 +15,10 @@ class Game {
     this.coins = [];
     this.rocks = [];
     this.explosions = [];
+    this.explosionsBoss = [];
     this.highScore;
     this.bulletsEnemies = [];
+    this.boss = [];
     this.isGameOver = false;
     this.points = 0;
     this.bulletOn = false;
@@ -26,11 +28,11 @@ class Game {
     this.gameTime = 0
     this.intervalIDEnemy = null;
     this.intervalIDBullet = null;
+    this.time = 0;
+    this.intervalIDBoss = null;
   }
 
   startLoop(){
-
-
     this.enemy = new Enemy(this.canvas)
     this.player = new Player(this.canvas, 3);
     this.space = new Space(this.canvas);
@@ -58,6 +60,11 @@ class Game {
     }, 3000);
 
     const loop = () => {
+      this.time++;
+      if (!this.pause && this.time === 5000){
+        this.boss.push(new BossEnemy(this.canvas, this.player.y, 20));
+        this.time = 0;
+      }
       if (this.bulletOn && !this.pause){
         this.bullets.push(new Bullet(this.canvas, (this.player.x + this.player.width), (this.player.y + this.player.height/2)))
         this.bulletOn = false;
@@ -93,6 +100,9 @@ class Game {
     this.space.update()
     this.player.update()
     this.player.renderAnimation()
+    this.boss.forEach((boss)=>{
+      boss.update()
+    })
     this.bullets.forEach((bullet)=>{
       bullet.update();
     })
@@ -129,6 +139,9 @@ class Game {
     this.ctx.fillText(`Score: ${this.points}`,this.canvas.width -200, this.canvas.height -10);
     this.ctx.fillText(`Insert coins: ${this.player.lives}`,this.canvas.width/2 -100, this.canvas.height -10);
     this.player.drawPlayer()
+    this.boss.forEach((boss)=>{
+      boss.drawEnemy()
+    })
     this.coins.forEach((coin)=>{
       coin.drawCoin()
     })
@@ -157,7 +170,10 @@ class Game {
   checkAllCollisions(){
     //Comprobar si el enemigo choca con los limites
     this.enemies.forEach((enemy)=>{
-      enemy.checkScreen()
+      enemy.checkScreen();
+    })
+    this.boss.forEach((boss)=>{
+      boss.checkScreen();
     })
     //Comprobar si el player choca con los limites
     this.player.checkScreen();
@@ -333,10 +349,12 @@ class Game {
     console.log("Time:",this.time)
     console.log("DoubleBullet:", this.doubleBullet)
     console.log("Rocks:", this.rocks)
+    console.log("Boss:", this.boss)
     };
   gameOverCallback(callback){
     clearInterval(this.intervalIDBullet)
     clearInterval(this.intervalIDEnemy)
+    clearInterval(this.intervalIDBoss)
     this.onGameOver = callback;
   };
   //Añadir highScore cuando acaba el juego
