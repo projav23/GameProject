@@ -55,11 +55,11 @@ buildDom(`
       <p id="move">Move</p>
       <p id="shoot">Shoot</p>
       <p id="pause">Pause/Continue</p>
-      <p id="double">Double Shoot</p>
-      <p id="four">Special Shoot</p>
+      <p id="double">Special Shoot</p>
+      <p id="four">Double Shoot</p>
       </div>
       <div class="backMenu">
-      <a href="#">Back</a>
+      <img src="images/atras copia.png" alt="">
       </div>
     </section>
     `)

@@ -385,19 +385,9 @@ h1 sub{
   margin-left: 1%;
   /* animation: control 1s ease-out; */
 }
-.backMenu a{
-  color:#ff6;
-  font-family:"Droid Sans", arial, verdana, sans-serif;
-  font-weight:bold;
-  font-size:36px;
-  text-align: center;
-  text-decoration:none;
-  background-color:black;
-  display:block;
-  position:relative;
-  padding:20px 40px;
-  border: 1px solid #ff6;
-  border-radius: 25px;
+.backMenu img{
+  width: 4%;
+  height: 4%;
 }
 .explain{
   display: flex;

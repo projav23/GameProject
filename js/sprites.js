@@ -62,7 +62,6 @@ class Coin {
   }
 
 }
-
 class Explosion{
   constructor(canvas, x, y, explosions){
     this.canvas = canvas;
@@ -110,7 +109,6 @@ class Explosion{
       this.heightExplosion)
   };
 }
-
 class Rock {
   constructor (canvas,x , y, lives){
     this.canvas = canvas;
@@ -173,50 +171,49 @@ class Rock {
     this.lives--;
   }
 }
-
-class StarDeath {
-  constructor(canvas, x, y, explosionsBoss){
-    this.canvas = canvas;
-    this.ctx = this.canvas.getContext("2d")
-    this.x = x;
-    this.y = y;
-    this.widthSprite = 2666;
-    this.heightSprite = 476;
-    this.widthExplosion = 300;
-    this.heightExplosion = 300;
-    this.ticksPerFrame = 4;
-    this.numberOfFrames = 7;
-    this.frameIndex = 0;
-    this.tickCount = 0;
-    this.explosionsBoss = explosionsBoss;
-  }
-  update(index){
-    this.tickCount += 1;
-    if (this.tickCount > this.ticksPerFrame) {
-      this.tickCount = 0;
-			// Mirar si el indice esta dentro del frame
-      if (this.frameIndex < this.numberOfFrames - 1) {	
-        // Ir al siguiente frame
-        this.frameIndex += 1;
-      } else {
-        //Vuelve al frame 0 y crea animacion
-        //this.frameIndex = 0;
-        this.explosionsBoss.splice(index, 1)
-      }
-    }
-  }
-  drawExplosion(){
-    let explosionImage = new Image();
-    explosionImage.src = "images/spritesheet (3).png";
-    this.ctx.drawImage(
-      explosionImage,
-      this.frameIndex * this.widthSprite / this.numberOfFrames,
-      0,
-      this.widthSprite / this.numberOfFrames,
-      this.heightSprite,
-      this.x,
-      this.y,
-      this.widthExplosion,
-      this.heightExplosion)
-  };
-}
+// class StarDeath {
+//   constructor(canvas, x, y, explosionsBoss){
+//     this.canvas = canvas;
+//     this.ctx = this.canvas.getContext("2d")
+//     this.x = x;
+//     this.y = y;
+//     this.widthSprite = 2666;
+//     this.heightSprite = 476;
+//     this.widthExplosion = 300;
+//     this.heightExplosion = 300;
+//     this.ticksPerFrame = 100;
+//     this.numberOfFrames = 7;
+//     this.frameIndex = 0;
+//     this.tickCount = 0;
+//     this.explosionsBoss = explosionsBoss;
+//   }
+//   update(index){
+//     this.tickCount += 1;
+//     if (this.tickCount > this.ticksPerFrame) {
+//       this.tickCount = 0;
+// 			// Mirar si el indice esta dentro del frame
+//       if (this.frameIndex < this.numberOfFrames - 1) {	
+//         // Ir al siguiente frame
+//         this.frameIndex += 1;
+//       } else {
+//         //Vuelve al frame 0 y crea animacion
+//         //this.frameIndex = 0;
+//         this.explosionsBoss.splice(index, 1)
+//       }
+//     }
+//   }
+//   drawExplosion(){
+//     let explosionImage = new Image();
+//     explosionImage.src = "images/spritesheet (3).png";
+//     this.ctx.drawImage(
+//       explosionImage,
+//       this.frameIndex * this.widthSprite / this.numberOfFrames,
+//       0,
+//       this.widthSprite / this.numberOfFrames,
+//       this.heightSprite,
+//       this.x,
+//       this.y,
+//       this.widthExplosion,
+//       this.heightExplosion)
+//   };
+// }

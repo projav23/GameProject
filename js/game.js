@@ -15,10 +15,10 @@ class Game {
     this.coins = [];
     this.rocks = [];
     this.explosions = [];
-    this.explosionsBoss = [];
+    // this.explosionsBoss = [];
     this.highScore;
     this.bulletsEnemies = [];
-    this.boss = [];
+    // this.boss = [];
     this.isGameOver = false;
     this.points = 0;
     this.bulletOn = false;
@@ -34,7 +34,7 @@ class Game {
 
   startLoop(){
     this.enemy = new Enemy(this.canvas)
-    this.player = new Player(this.canvas, 3);
+    this.player = new Player(this.canvas, 1)
     this.space = new Space(this.canvas);
     this.bullet = new Bullet(this.canvas, (this.player.width), (this.player.y + this.player.height/2))
     
@@ -43,52 +43,52 @@ class Game {
         const y = Math.random() * (this.canvas.height - this.enemy.height);
         this.enemies.push(new Enemy(this.canvas, y));
       }
-    }, 1000);
+    }, 3000);
 
     this.intervalIDRock = setInterval(() => {
       if (!this.pause){
       let y = Math.floor(Math.random()* this.canvas.height)
       this.rocks.push(new Rock(this.canvas, this.canvas.width, y, 2))
       }
-    }, 5000);
+    }, 7000);
     
     this.intervalIDBullet = setInterval(() => {
       if (!this.pause){
       let i = Math.floor(Math.random() * this.enemies.length)
       this.bulletsEnemies.push(new BulletEnemies(this.canvas, this.enemies[i].x, this.enemies[i].y + this.enemies[i].width/2))
       }
-    }, 3000);
+    }, 1000);
 
     const loop = () => {
-      this.time++;
-      if (!this.pause && this.time === 5000){
-        this.boss.push(new BossEnemy(this.canvas, this.player.y, 20));
-        this.time = 0;
-      }
-      if (this.bulletOn && !this.pause){
-        this.bullets.push(new Bullet(this.canvas, (this.player.x + this.player.width), (this.player.y + this.player.height/2)))
-        this.bulletOn = false;
-      }
-      if (this.doubleBulletOn && !this.pause){
-        this.doubleBullet.push(new BulletExtremeLeft(this.canvas, (this.player.x + this.player.width), (this.player.y  )))
-        this.doubleBullet.push(new BulletExtremeRigth(this.canvas, (this.player.x + this.player.width), (this.player.y + this.player.height - 20)))
-        this.doubleBulletOn = false;
-      }
-      if (this.weapon && !this.pause){
-        this.bulletsAll.push(new BulletLeft(this.canvas, this.player.x, this.player.y + this.player.height/2))
-        this.bulletsAll.push(new BulletRigth(this.canvas,(this.player.x + this.player.width), (this.player.y + this.player.height/2)))
-        this.bulletsAll.push(new BulletTop(this.canvas,(this.player.x + this.player.width/2), this.player.y))
-        this.bulletsAll.push(new BulletBottom(this.canvas,(this.player.x + this.player.width/2), (this.player.y + this.player.height)))
-        this.weapon = false;
-      }
       if (!this.pause){
-        if (Math.floor(Math.random() * 100000) > 99850){
+        // this.time++;
+        // if (this.time === 500){
+        //   this.boss.push(new BossEnemy(this.canvas, this.player.y, 20));
+        //   this.time = 0;
+        
+        if (this.bulletOn){
+          this.bullets.push(new Bullet(this.canvas, (this.player.x + this.player.width), (this.player.y + this.player.height/2)))
+          this.bulletOn = false;
+        }
+        if (this.doubleBulletOn){
+          this.doubleBullet.push(new BulletExtremeLeft(this.canvas, (this.player.x + this.player.width), (this.player.y  )))
+          this.doubleBullet.push(new BulletExtremeRigth(this.canvas, (this.player.x + this.player.width), (this.player.y + this.player.height - 20)))
+          this.doubleBulletOn = false;
+        }
+        if (this.weapon){
+          this.bulletsAll.push(new BulletLeft(this.canvas, this.player.x, this.player.y + this.player.height/2))
+          this.bulletsAll.push(new BulletRigth(this.canvas,(this.player.x + this.player.width), (this.player.y + this.player.height/2)))
+          this.bulletsAll.push(new BulletTop(this.canvas,(this.player.x + this.player.width/2), this.player.y))
+          this.bulletsAll.push(new BulletBottom(this.canvas,(this.player.x + this.player.width/2), (this.player.y + this.player.height)))
+          this.weapon = false;
+        }
+        if (Math.floor(Math.random() * 100000) > 99900){
           this.coins.push(new Coin(this.canvas, this.canvas.width , Math.floor(Math.random()* this.canvas.height)))
         }
-      this.checkAllCollisions();
-      this.updateCanvas();
-      this.clearCanvas();
-      this.drawCanvas();
+        this.checkAllCollisions();
+        this.updateCanvas();
+        this.clearCanvas();
+        this.drawCanvas();
       }
       if (!this.isGameOver) {
           window.requestAnimationFrame(loop);
@@ -97,84 +97,87 @@ class Game {
     window.requestAnimationFrame(loop);
   }
   updateCanvas(dt){
-    this.space.update()
-    this.player.update()
-    this.player.renderAnimation()
-    this.boss.forEach((boss)=>{
-      boss.update()
-    })
+    this.space.update();
+    this.player.update();
+    this.player.renderAnimation();
+    // this.boss.forEach((boss)=>{
+    //   boss.update();
+    // });
     this.bullets.forEach((bullet)=>{
       bullet.update();
-    })
+    });
     this.doubleBullet.forEach((bullet)=>{
-      bullet.update()
-    })
+      bullet.update();
+    });
     this.bulletsAll.forEach((bullet)=>{
-      bullet.update()
-    })
+      bullet.update();
+    });
     this.enemies.forEach((enemy) => {
       enemy.update(this.points);
     });
     this.bulletsEnemies.forEach((bullet)=>{
       bullet.update();
-    })
+    });
     this.coins.forEach((coin)=>{
-      coin.update()
-    })
+      coin.update();
+    });
     this.rocks.forEach((rock)=>{
-      rock.update()
-    })
+      rock.update();
+    });
     this.explosions.forEach((explosion, index)=>{
-      explosion.update(index)
-    })
+      explosion.update(index);
+    });
+    // this.explosionsBoss.forEach((explosion, index)=>{
+    //   explosion.update(index);
+    // });
     
-  }
+  };
   clearCanvas(){
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-  }
+  };
   drawCanvas(){
-    this.space.drawSpace()
+    this.space.drawSpace();
     this.ctx.fillStyle = "#ff6";
     this.ctx.font = '30px "Droid Sans", arial, verdana, sans-serif';
     this.ctx.fillText(`Score: ${this.points}`,this.canvas.width -200, this.canvas.height -10);
     this.ctx.fillText(`Insert coins: ${this.player.lives}`,this.canvas.width/2 -100, this.canvas.height -10);
-    this.player.drawPlayer()
-    this.boss.forEach((boss)=>{
-      boss.drawEnemy()
-    })
+    this.player.drawPlayer();
+    // this.boss.forEach((boss)=>{
+    //   boss.drawEnemy();
+    // });
     this.coins.forEach((coin)=>{
-      coin.drawCoin()
-    })
+      coin.drawCoin();
+    });
     this.rocks.forEach((rock)=>{
       rock.drawRock();
-    })
+    });
     this.explosions.forEach((explosion) =>{
-      explosion.drawExplosion()
-    })
+      explosion.drawExplosion();
+    });
+    // this.explosionsBoss.forEach((explosion) =>{
+    //   explosion.drawExplosion();
+    // });
     this.bullets.forEach((bullet)=>{
       bullet.drawBullet();
-    })
+    });
     this.doubleBullet.forEach((bullet)=>{
       bullet.drawBullet();
-    })
+    });
     this.bulletsAll.forEach((bullet)=>{
       bullet.drawBullet();
-    })
+    });
     this.enemies.forEach((enemy)=>{
       enemy.drawEnemy();
-    })
+    });
     this.bulletsEnemies.forEach((bullet)=>{
       bullet.drawBullet();
-    })
+    });
   }
   checkAllCollisions(){
     //Comprobar si el enemigo choca con los limites
     this.enemies.forEach((enemy)=>{
       enemy.checkScreen();
-    })
-    this.boss.forEach((boss)=>{
-      boss.checkScreen();
-    })
+    });
     //Comprobar si el player choca con los limites
     this.player.checkScreen();
     //Comprobar si los enemigos se chocan con el jugador
@@ -182,23 +185,23 @@ class Game {
       if (this.player.checkCollisionEnemy(enemy)) {
         //Pierde vidas
         this.player.loseLives();
-        this.explosions.push(new Explosion(this.canvas, enemy.x, enemy.y-enemy.height, this.explosions))
+        this.explosions.push(new Explosion(this.canvas, enemy.x, enemy.y-enemy.height, this.explosions));
         this.enemies.splice(index, 1);
         if (this.player.lives === 0) {
           //Se acaba el juego si no tiene vidas
           this.isGameOver = true;
-          this.highScores()
+          this.highScores();
           this.onGameOver(this.points);
           this.points = 0;
-        }
-      }
+        };
+      };
     });
     //Comprobar si las balas normales (space) chocan con los enemigos
     this.bullets.forEach((bullet, indexBullet) => {
       this.enemies.forEach((enemy, indexEnemy) => {
         if (bullet.checkCollisionEnemy(enemy)){
           this.points += 25;
-          this.explosions.push(new Explosion(this.canvas, enemy.x, enemy.y-enemy.height, this.explosions))
+          this.explosions.push(new Explosion(this.canvas, enemy.x, enemy.y-enemy.height, this.explosions));
           this.enemies.splice(indexEnemy, 1);
           this.bullets.splice(indexBullet, 1);
         };
@@ -210,21 +213,21 @@ class Game {
         this.bulletsEnemies.splice(i, 1)
         //Si chocan se acaba el juego
         this.isGameOver = true;
-        this.highScores()
-        this.onGameOver(this.points)
+        this.highScores();
+        this.onGameOver(this.points);
         this.points = 0;
         
-      }
-    })
+      };
+    });
     //Comprobar si las rocas chocan con los disparos y quitarle una vida a la roca
     this.bullets.forEach((bullet, index) => {
       this.rocks.forEach((rock, i) => {
         if (rock.checkCollisionEnemy(bullet)){
-          rock.loseLives()
-          this.bullets.splice(index,1)
+          rock.loseLives();
+          this.bullets.splice(index,1);
           if (rock.lives === 0){
             this.rocks.splice(i, 1);
-          }
+          };
         };
       });
     });
@@ -296,6 +299,45 @@ class Game {
         }
       })
     });
+    // this.bullets.forEach((bullet, index)=>{
+    //   this.boss.forEach((boss, i)=>{
+    //     if (bullet.checkCollisionEnemy(boss)){
+    //       boss.loseLives();
+    //       this.bullets.splice(index, 1)
+    //       if (boss.lives === 0) {
+    //         this.points +=100
+    //         this.explosionsBoss.push(new StarDeath(this.canvas, boss.x, boss.y, this.explosionsBoss))
+    //         this.boss.splice(i,1)
+    //       }
+    //     }
+    //   })
+    // })
+    // this.bulletsAll.forEach((bullet, index)=>{
+    //   this.boss.forEach((boss, i)=>{
+    //     if (bullet.checkCollisionEnemy(boss)){
+    //       boss.loseLives();
+    //       this.bulletsAll.splice(index, 1)
+    //       if (boss.lives === 0) {
+    //         this.points +=100
+    //         this.explosionsBoss.push(new StarDeath(this.canvas, boss.x, boss.y, this.explosionsBoss))
+    //         this.boss.splice(i,1)
+    //       }
+    //     }
+    //   })
+    // })
+    // this.doubleBullet.forEach((bullet, index)=>{
+    //   this.boss.forEach((boss, i)=>{
+    //     if (bullet.checkCollisionEnemy(boss)){
+    //       boss.loseLives();
+    //       this.doubleBullet.splice(index, 1)
+    //       if (boss.lives === 0) {
+    //         this.points +=100
+    //         this.explosionsBoss.push(new StarDeath(this.canvas, boss.x, boss.y, this.explosionsBoss))
+    //         this.boss.splice(i,1)
+    //       }
+    //     }
+    //   })
+    // })
     //Borrar si están fuera de los limites
     this.coins.forEach((coin, index) => {
       if (coin.x - coin.widthCoin <=0) {
@@ -349,12 +391,13 @@ class Game {
     console.log("Time:",this.time)
     console.log("DoubleBullet:", this.doubleBullet)
     console.log("Rocks:", this.rocks)
-    console.log("Boss:", this.boss)
+ 
+
     };
   gameOverCallback(callback){
     clearInterval(this.intervalIDBullet)
     clearInterval(this.intervalIDEnemy)
-    clearInterval(this.intervalIDBoss)
+    // clearInterval(this.intervalIDBoss)
     this.onGameOver = callback;
   };
   //Añadir highScore cuando acaba el juego
