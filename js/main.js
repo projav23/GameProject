@@ -74,7 +74,7 @@ buildDom(`
             <audio src="sounds/la-brisa_1.mp3" loop></audio>
         </section>
         `);
-    document.querySelector("audio").volume = 0.02
+    document.querySelector("audio").volume = 0.04
     document.querySelector("audio").play()
     document.body.style.backgroundImage = "none"
     //document.querySelector(".game-screen").style.height = "790px";

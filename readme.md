@@ -180,7 +180,7 @@ Pendientes:
    //Pintar pausa cuando este parado el juego y pulsar p para reanudar
    //Nuevas armas
    //Hacer que los enemigos se muevan de arriba abajo
-Añadir boss con mas vidas que un disparo 
+   //Añadir boss con mas vidas que un disparo 
    //Añadir obstaculos que cueste destruir 
    //Añadir coger vidas
    //Crear animaciones de explosiones de naves (Como borrarla cuando se acaba la animacion?)
@@ -189,6 +189,9 @@ Añadir boss con mas vidas que un disparo
    //Añadir sonido al dar al boton de restar de no me falle general
    //Añadir nueva arma que dispare de los extremos de la nave
 Cuando está pausa que no se oigan los sonidos
+Cuando haces back de controls, no volver a cargar todo el menu / Crear quizas otra pantalla exactamente igual pero sin sonido y sin texto deslizando
+Revisar todo el codigo en busca de fallos
+Hacerlo responsive para github pages
 
 
 
