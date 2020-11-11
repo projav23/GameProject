@@ -108,9 +108,7 @@ main{
   /* display: flex; */
   height: 100%;
   width: 100%;
-  background-image: "images/darth-vader.jpg";
-  background-size: cover;
-  z-index: -100;
+  
 }
 .game-over h1 {
   color: white;

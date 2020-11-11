@@ -183,7 +183,8 @@ buildDom(`
             </div>
             </section>
             `);
-    document.body.style.backgroundImage = "images/darth-vader.jpg"
+    document.body.style.backgroundImage = "url(images/darth-vader.jpg)"
+    document.body.style.backgroundSize = "cover"
     let restartBtn = document.querySelector(".restart");
     let menuBtn = document.querySelector(".menu");
     restartBtn.addEventListener("click", createAudioRestart)
