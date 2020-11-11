@@ -79,6 +79,7 @@ buildDom(`
   `)
   let startButton = document.querySelector(".button1");
   startButton.addEventListener("click", buildGameScreen);
+  startButton.addEventListener("click", madeTheForce);
   let controlButton = document.querySelector(".controls1");
   controlButton.addEventListener("click", buildControls);
   }

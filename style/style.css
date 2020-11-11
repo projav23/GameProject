@@ -34,6 +34,8 @@ main{
   display: flex;
   justify-content: center;
   margin-top: 20%;
+  width: 300px;
+  margin-left: 40%;
   animation: boton 26s ease-out;
 }
 @keyframes boton {
@@ -61,6 +63,8 @@ main{
   display: flex;
   justify-content: center;
   margin-top: 2%;
+  width: 300px;
+  margin-left: 40%;
   animation: control 26s ease-out;
 }
 @keyframes control {
@@ -433,6 +437,8 @@ border: 2px solid green;
   display: flex;
   justify-content: center;
   margin-top: 20%;
+  width: 300px;
+  margin-left: 40%;
 }
 
 .button1 a{
@@ -455,6 +461,8 @@ border: 2px solid green;
   display: flex;
   justify-content: center;
   margin-top: 2%;
+  width: 300px;
+  margin-left: 40%;
 }
 
 .controls1 a{
