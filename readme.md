@@ -188,10 +188,12 @@ Pendientes:
    //Atravesar paredes
    //Añadir sonido al dar al boton de restar de no me falle general
    //Añadir nueva arma que dispare de los extremos de la nave
-Cuando está pausa que no se oigan los sonidos
-Cuando haces back de controls, no volver a cargar todo el menu / Crear quizas otra pantalla exactamente igual pero sin sonido y sin texto deslizando
+   //Cuando está pausa que no se oigan los sonidos
+   //Cuando haces back de controls, no volver a cargar todo el menu / Crear quizas otra pantalla exactamente igual pero sin sonido y sin texto deslizando
 Revisar todo el codigo en busca de fallos
 Hacerlo responsive para github pages
+   //No se hará Que salgan mas enemigos cuando vayas llegando a X puntación o que salgan random
+
 
 
 

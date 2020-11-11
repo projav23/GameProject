@@ -15,10 +15,10 @@ class Enemy {
   update(points){
     if (points <= 1000){
     this.x = this.x + this.directionX * this.speed;
-    } else if (points >1000){
-      this.x = this.x + this.directionX * 5;
-    } else if (points > 3000){
-      this.x = this.x + this.directionX * 10;
+    } else if (points > 1000 && points <= 2000){
+      this.x = this.x + this.directionX * 4;
+    } else if (points > 2000){
+      this.x = this.x + this.directionX * 8;
     }
   this.y = this.y - this.directionY * this.speed
   }

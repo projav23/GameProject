@@ -63,8 +63,21 @@ buildDom(`
       </div>
     </section>
     `)
-    document.querySelector(".backMenu").addEventListener("click", buildSplashScreen)
+    document.querySelector(".backMenu").addEventListener("click", buildMenuWithOut)
   };
+  let buildMenuWithOut = () => {
+    buildDom(`
+    <section class="splash-screen1">
+      <div class="button1">
+        <a href="#">Start Game</a>
+      </div>
+      <div class="controls1">
+        <a href="#">How to play</a>
+      </div>
+      <img src="images/anakin.png" alt="Anakin">
+  </section>
+  `)
+  }
 
   let buildGameScreen = () => {
     setTimeout(() => {
@@ -87,7 +100,7 @@ buildDom(`
     game.gameOverCallback(buildGameOver);
     game.startLoop();
     const createBulletPlayer = (event) => {
-      if (event.code === "Space"){
+      if (event.code === "Space" && !game.pause){
         game.bulletOn = true;
         let audio = new Audio("sounds/007132157_prev.mp3");
         audio.volume = 0.01;
@@ -95,7 +108,7 @@ buildDom(`
       }
     }
     const createDoubleBulletPlayer = (event) => {
-      if (event.code === "KeyC"){
+      if (event.code === "KeyC" && !game.pause){
         game.doubleBulletOn = true;
         let audio = new Audio("sounds/008827459_prev.mp3");
         audio.volume = 0.01;
@@ -103,7 +116,7 @@ buildDom(`
       }
     }
     const bulletAllDirections = (event) => {
-      if (event.code === "KeyX"){
+      if (event.code === "KeyX" && !game.pause){
         game.weapon = true;
         let audio = new Audio("sounds/007132157_prev.mp3");
         audio.volume = 0.01;

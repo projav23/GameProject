@@ -45,7 +45,7 @@ class Game {
         const y = Math.random() * (this.canvas.height - this.enemy.height);
         this.enemies.push(new Enemy(this.canvas, y));
       }
-    }, 3000);
+    }, 2000);
 
     this.intervalIDRock = setInterval(() => {
       if (!this.pause){
@@ -65,7 +65,6 @@ class Game {
     const loop = () => {
       if (!this.pause){
         this.time++;
-        
         if (this.time === (5000 * this.count)){
           this.boss.push(new BossEnemy(this.canvas, this.player.y, (this.count * 30)));
           this.time = 0;
