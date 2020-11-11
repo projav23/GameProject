@@ -77,6 +77,10 @@ buildDom(`
       <img src="images/anakin.png" alt="Anakin">
   </section>
   `)
+  let startButton = document.querySelector(".button1");
+  startButton.addEventListener("click", buildGameScreen);
+  let controlButton = document.querySelector(".controls1");
+  controlButton.addEventListener("click", buildControls);
   }
 
   let buildGameScreen = () => {

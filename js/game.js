@@ -202,6 +202,9 @@ class Game {
     this.enemies.forEach((enemy, index) => {
       if (this.player.checkCollisionEnemy(enemy)) {
         //Pierde vidas
+        let audio = new Audio("sounds/error-fallo 2.mp3");
+        audio.volume = 0.02;
+        audio.play();
         this.player.loseLives();
         this.explosions.push(new Explosion(this.canvas, enemy.x, enemy.y-75, this.explosions));
         this.enemies.splice(index, 1);
@@ -229,6 +232,9 @@ class Game {
     this.bulletsEnemies.forEach((bullet, i)=>{
       if (bullet.checkCollisionEnemy(this.player)){
         this.bulletsEnemies.splice(i, 1)
+        let audio = new Audio("sounds/error-fallo 2.mp3");
+        audio.volume = 0.02;
+        audio.play();
         this.player.loseLives();
         if (this.player.lives === 0) {
           //Se acaba el juego si no tiene vidas
@@ -243,6 +249,9 @@ class Game {
     this.bulletsBoss.forEach((bullet, i)=>{
       if (bullet.checkCollisionEnemy(this.player)){
         this.bulletsBoss.splice(i, 1)
+        let audio = new Audio("sounds/error-fallo 2.mp3");
+        audio.volume = 0.02;
+        audio.play();
         this.player.loseLives();
         if (this.player.lives === 0) {
           //Se acaba el juego si no tiene vidas
@@ -294,6 +303,9 @@ class Game {
     this.rocks.forEach((rock, index)=>{
       if (rock.checkCollisionEnemy(this.player)){
         //Si chocan pierdes vida
+        let audio = new Audio("sounds/error-fallo 2.mp3");
+        audio.volume = 0.02;
+        audio.play();
         this.player.loseLives();
         this.rocks.splice(index,1)
         if (this.player.lives === 0) {
