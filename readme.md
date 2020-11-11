@@ -193,7 +193,7 @@ Pendientes:
 Revisar todo el codigo en busca de fallos
 Hacerlo responsive para github pages
    //No se hará Que salgan mas enemigos cuando vayas llegando a X puntación o que salgan random
-
+Añadir sonidos cuando pierdas vida
 
 
 

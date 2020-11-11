@@ -14,26 +14,12 @@ main{
   position: fixed;
   bottom: 0;
 }
-/* .codeBy {
-  font-family: "Droid Sans", arial, verdana, sans-serif;
-  position: relative;
-  color: #ff6;
-  margin-top: 0%;
-  margin-left: 1%;
-  margin-right: -0;
-  animation: code 25s ease;
-  z-index: 100;
-  width: 200px;
-} */
-/* @keyframes code {
-  0% { opacity: 0; }
-  90% { opacity: 0; }
-  100% { opacity: 1; }
-} */
 
 .splash-screen img {
-  margin-left: 20%;
-  margin-top: 15%;
+  /* margin-left: 20%;
+  margin-top: 15%; */
+  margin-left: 6%;
+  margin-top: 8%;
   animation: anakin 26s ease-out;
 }
 @keyframes anakin {
@@ -153,7 +139,8 @@ h1 {
   position: absolute;
   width: 3em;
   left: 50%;
-  top: 10%;
+  /* top: 10%; */
+  top: 3%;
   font-size: 10em;
   text-align: center;
   margin-left: -1.3em;
@@ -239,10 +226,10 @@ h1 sub{
   position:relative;
   /* display: flex; */
   width: 200px;
-  height: 200px;
+  height: 100px;
   justify-content: center;
-  margin-top: 5%;
-  margin-left: 40%;
+  margin-top: 3%;
+  margin-left: 37%;
   animation: botonRestart 3s ease-out; 
 }
 @keyframes botonRestart {
@@ -262,19 +249,21 @@ h1 sub{
   display:block;
   position:relative;
   padding:20px 40px;
-}
-.restart a:hover{
   border: 5px solid #ff6;
   border-radius: 25px;
 }
+/* .restart a:hover{
+  border: 5px solid #ff6;
+  border-radius: 25px;
+} */
 .menu{
   position:relative;
   /* display: flex; */
   justify-content: center;
-  margin-top: 5%;
+  margin-top: 3%;
   animation: botonMenu 3s ease-out; 
   width: 200px;
-  height: 200px;
+  height: 100px;
 }
 @keyframes botonMenu {
   0% { opacity: 0; }
@@ -292,18 +281,20 @@ h1 sub{
   display:block;
   position:relative;
   padding:20px 40px;
-}
-.menu a:hover{
   border: 5px solid #ff6;
   border-radius: 25px;
 }
+/* .menu a:hover{
+  border: 5px solid #ff6;
+  border-radius: 25px;
+} */
 .finalGame {
   font-family: "Droid Sans", arial, verdana, sans-serif;
   font-weight: 700;
   color: #ff6;
-  font-size: 10em;
+  font-size: 6em;
   text-align: center;
-  margin-top: 10%;
+  margin-top: 8%;
   animation: gameOver 3s ease-out;
   z-index: 100;
 }
@@ -363,9 +354,9 @@ h1 sub{
   height: 790px;
 }
 #keyboard-controls{
-  
   margin-top: 2%;
-  margin-left: 33%;
+  /* margin-left: 33%; */
+  margin-left: 27%;
 }
 
 .howToPlay{
@@ -379,14 +370,14 @@ h1 sub{
 .backMenu{
   position:relative;
   display: flex;
-  
-  margin-top: 12%;
+  margin-top: 4%;
+  /* margin-top: 12%; */
   margin-left: 1%;
   /* animation: control 1s ease-out; */
 }
 .backMenu img{
-  width: 4%;
-  height: 4%;
+  width: 2%;
+  height: 2%;
 }
 .explain{
   display: flex;
@@ -420,11 +411,13 @@ border: 2px solid green;
 
 
 
-
+/* ---------------------------------------------- Principal sin cargar star wars main ----------------------------------------- */
 
 .splash-screen1 img {
-  margin-left: 20%;
-  margin-top: 15%;
+  /* margin-left: 20%;
+  margin-top: 15%; */
+  margin-left: 6%;
+  margin-top: 8%;
 }
 
 
@@ -485,7 +478,7 @@ border: 2px solid green;
   align-items: center;
   margin-top: 0;
 }
-.splash-screen1 button {
+.splash-screen1ƒ button {
   margin-left: 45%;
   width: 150px;
   color: white;
