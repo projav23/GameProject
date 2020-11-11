@@ -11,6 +11,7 @@ const main = () => {
   }
   let buildSplashScreen = () => {
 buildDom(`
+
 <audio src="sounds/starwras-guerra-de-las-galaxias-peliculas-.mp3" ></audio>
 <h1>STAR WARS<sub>IronHack Wars</sub></h1>
 <div id="titles">
@@ -23,6 +24,7 @@ buildDom(`
     <p>As the Separatist Droid Army attempts to flee the besieged capital with their valuable hostage, two Jedi Knights leas a desperate mission to rescue the captive Chancellor...</p>
     </div>
 </div>
+
 <section class="splash-screen">
         <div class="button">
           <a href="#">Start Game</a>
@@ -32,12 +34,15 @@ buildDom(`
         </div>
         <img src="images/anakin.png" alt="Anakin">
 </section>
+<iframe src = "sounds/250 Milliseconds of Silence.mp3"  >
+
       `)
 
   setTimeout(() => {
     document.querySelector("audio").play();
     document.querySelector("audio").volume = 0.01;
   },2000);
+
     document.body.style.backgroundImage = "none"
     let startButton = document.querySelector(".button");
     startButton.addEventListener("click", buildGameScreen);
@@ -198,3 +203,4 @@ window.addEventListener("load", main)
 
 
  // <video id="myVideo" src="images/JAvi pesado.m4v" autoplay></video>
+//  <audio src="sounds/starwras-guerra-de-las-galaxias-peliculas-.mp3" ></audio>
