@@ -195,7 +195,7 @@ buildDom(`
     let menuBtn = document.querySelector(".menu");
     restartBtn.addEventListener("click", createAudioRestart)
     restartBtn.addEventListener("click", buildGameScreen)
-    menuBtn.addEventListener("click", buildSplashScreen)
+    menuBtn.addEventListener("click", buildMenuWithOut)
   };
   buildSplashScreen();
 }
