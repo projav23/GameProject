@@ -229,8 +229,8 @@ h1 sub{
   width: 200px;
   height: 100px;
   justify-content: center;
-  margin-top: 3%;
-  margin-left: 37%;
+  margin-top: 10%;
+  margin-left: 35%;
   animation: botonRestart 3s ease-out; 
 }
 @keyframes botonRestart {
@@ -261,7 +261,7 @@ h1 sub{
   position:relative;
   /* display: flex; */
   justify-content: center;
-  margin-top: 3%;
+  margin-top: 10%;
   margin-left: 2%;
   animation: botonMenu 3s ease-out; 
   width: 200px;
@@ -298,7 +298,7 @@ h1 sub{
   font-family: "Droid Sans", arial, verdana, sans-serif;
   font-weight: 700;
   color: #ff6;
-  font-size: 6em;
+  font-size: 8em;
   text-align: center;
   margin-top: 8%;
   animation: gameOver 3s ease-out;
@@ -325,7 +325,7 @@ h1 sub{
   text-align: center;
   animation: score 3s ease-out;
   z-index: 100;
-  margin-top: 2%;
+  margin-top: 5%;
 }
 @keyframes score {
   0% { opacity: 0; }
