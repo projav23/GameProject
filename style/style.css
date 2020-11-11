@@ -261,6 +261,7 @@ h1 sub{
   /* display: flex; */
   justify-content: center;
   margin-top: 3%;
+  margin-left: 2%;
   animation: botonMenu 3s ease-out; 
   width: 200px;
   height: 100px;
@@ -319,6 +320,7 @@ h1 sub{
   text-align: center;
   animation: score 3s ease-out;
   z-index: 100;
+  margin-top: 2%;
 }
 @keyframes score {
   0% { opacity: 0; }

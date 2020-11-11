@@ -191,9 +191,9 @@ Pendientes:
    //Cuando está pausa que no se oigan los sonidos
    //Cuando haces back de controls, no volver a cargar todo el menu / Crear quizas otra pantalla exactamente igual pero sin sonido y sin texto deslizando
 Revisar todo el codigo en busca de fallos
-Hacerlo responsive para github pages
+   //Hacerlo responsive para github pages
    //No se hará Que salgan mas enemigos cuando vayas llegando a X puntación o que salgan random
-Añadir sonidos cuando pierdas vida
+   //Añadir sonidos cuando pierdas vida
 
 
 
