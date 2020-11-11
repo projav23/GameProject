@@ -166,7 +166,6 @@ buildDom(`
   }
   let buildGameOver = (score) => {
     buildDom(`
-            <video id="myVideo" src="images/JAvi pesado.m4v" autoplay></video>
             <section class="game-over">
             <div class="containerAll">
             <div class="finalGame">Game Over
@@ -184,7 +183,7 @@ buildDom(`
             </div>
             </section>
             `);
-    document.body.style.backgroundImage = "none)"
+    document.body.style.backgroundImage = "images/darth-vader.jpg"
     let restartBtn = document.querySelector(".restart");
     let menuBtn = document.querySelector(".menu");
     restartBtn.addEventListener("click", createAudioRestart)
@@ -194,3 +193,6 @@ buildDom(`
   buildSplashScreen();
 }
 window.addEventListener("load", main)
+
+
+ // <video id="myVideo" src="images/JAvi pesado.m4v" autoplay></video>
