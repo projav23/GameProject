@@ -59,7 +59,7 @@ class Game {
       let i = Math.floor(Math.random() * this.enemies.length)
       this.bulletsEnemies.push(new BulletEnemies(this.canvas, this.enemies[i].x, this.enemies[i].y + this.enemies[i].width/2))
       }
-    }, 3000);
+    }, 800);
 
 
     const loop = () => {

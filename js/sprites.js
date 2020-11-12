@@ -114,7 +114,7 @@ class Rock {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext("2d")
     this.y = y;
-    this.x = x
+    this.x = x;
     this.speed = 4;
     this.direction = 1;
     this.widthSprite = 360;
@@ -130,6 +130,7 @@ class Rock {
   }
   update(){
     this.x = this.x - this.direction * this.speed
+    
     this.tickCount += 1;
     if (this.tickCount > this.ticksPerFrame) {
       this.tickCount = 0;

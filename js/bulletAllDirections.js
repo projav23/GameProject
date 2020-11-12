@@ -26,7 +26,7 @@ class BulletLeft {
     const collideBottom = this.y - this.height / 2 < enemy.y + enemy.height;
     if (collideRight && collideLeft && collideTop && collideBottom) {
       let audio = new Audio("sounds/003576076_prev.mp3");
-      audio.volume = 0.01;
+      audio.volume = 0.1;
       audio.play();
       return true;
     }
@@ -59,7 +59,7 @@ class BulletRigth{
     const collideBottom = this.y - this.height / 2 < enemy.y + enemy.height;
     if (collideRight && collideLeft && collideTop && collideBottom) {
       let audio = new Audio("sounds/003576076_prev.mp3");
-      audio.volume = 0.01;
+      audio.volume = 0.1;
       audio.play();
       return true;
     }
@@ -92,7 +92,7 @@ class BulletTop{
     const collideBottom = this.y - this.height / 2 < enemy.y + enemy.height;
     if (collideRight && collideLeft && collideTop && collideBottom) {
       let audio = new Audio("sounds/003576076_prev.mp3");
-      audio.volume = 0.01;
+      audio.volume = 0.1;
       audio.play();
       return true;
     }
@@ -125,7 +125,7 @@ class BulletBottom{
     const collideBottom = this.y - this.height / 2 < enemy.y + enemy.height;
     if (collideRight && collideLeft && collideTop && collideBottom) {
       let audio = new Audio("sounds/003576076_prev.mp3");
-      audio.volume = 0.01;
+      audio.volume = 0.1;
       audio.play();
       return true;
     }
@@ -158,7 +158,7 @@ class BulletExtremeLeft{
     const collideBottom = this.y - this.height / 2 < enemy.y + enemy.height;
     if (collideRight && collideLeft && collideTop && collideBottom) {
       let audio = new Audio("sounds/003576076_prev.mp3");
-      audio.volume = 0.01;
+      audio.volume = 0.1;
       audio.play();
       return true;
     }
@@ -191,7 +191,7 @@ class BulletExtremeRigth{
     const collideBottom = this.y - this.height / 2 < enemy.y + enemy.height;
     if (collideRight && collideLeft && collideTop && collideBottom) {
       let audio = new Audio("sounds/003576076_prev.mp3");
-      audio.volume = 0.01;
+      audio.volume = 0.1;
       audio.play();
       return true;
     }
@@ -224,7 +224,7 @@ class Bullet {
     const collideBottom = this.y - this.height / 2 < enemy.y + enemy.height;
     if (collideRight && collideLeft && collideTop && collideBottom) {
       let audio = new Audio("sounds/003576076_prev.mp3");
-      audio.volume = 0.01;
+      audio.volume = 0.1;
       audio.play();
 
       return true;
