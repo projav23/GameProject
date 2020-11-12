@@ -82,6 +82,7 @@ buildDom(`
       <img src="images/anakin.png" alt="Anakin">
   </section>
   `)
+  document.body.style.backgroundImage = "none";
   let startButton = document.querySelector(".button1");
   startButton.addEventListener("click", buildGameScreen);
   startButton.addEventListener("click", madeTheForce);
