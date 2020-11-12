@@ -65,7 +65,7 @@ class Game {
     const loop = () => {
       if (!this.pause){
         this.time++;
-        if (this.time === (5000 * this.count)){
+        if (this.time === (2000 * this.count)){
           this.boss.push(new BossEnemy(this.canvas, this.player.y, (this.count * 30)));
           this.time = 0;
           this.count++
