@@ -152,7 +152,7 @@ class BulletExtremeLeft{
     this.ctx.drawImage(imgDoubleBulletLeft, this.x, this.y, this.width, this.height)
   }
   checkCollisionEnemy(enemy){
-    const collideRight = this.x > enemy.x;
+    const collideRight = this.x + this.width > enemy.x;
     const collideLeft = this.x - this.width / 2 < enemy.x + enemy.width / 2;
     const collideTop = this.y + this.height / 2 > enemy.y;
     const collideBottom = this.y - this.height / 2 < enemy.y + enemy.height;
@@ -185,7 +185,7 @@ class BulletExtremeRigth{
     this.ctx.drawImage(imgDoubleBullet, this.x, this.y, this.width, this.height)
   }
   checkCollisionEnemy(enemy){
-    const collideRight = this.x > enemy.x;
+    const collideRight = this.x + this.width> enemy.x;
     const collideLeft = this.x - this.width / 2 < enemy.x + enemy.width / 2;
     const collideTop = this.y + this.height / 2 > enemy.y;
     const collideBottom = this.y - this.height / 2 < enemy.y + enemy.height;

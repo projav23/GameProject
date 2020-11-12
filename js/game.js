@@ -91,7 +91,7 @@ class Game {
           this.bulletsAll.push(new BulletBottom(this.canvas,(this.player.x + this.player.width/2), (this.player.y + this.player.height)))
           this.weapon = false;
         }
-        if (Math.floor(Math.random() * 100000) > 99990){
+        if (Math.floor(Math.random() * 100000) > 99960){
           this.coins.push(new Coin(this.canvas, this.canvas.width , Math.floor(Math.random()* this.canvas.height)))
         }
         this.checkAllCollisions();

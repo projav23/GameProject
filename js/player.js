@@ -10,8 +10,8 @@ class Player {
     this.height = 120;
     this.velY = 0;
     this.velX = 0
-    this.speed = 4;
-    this.friction = 0.9;
+    this.speed = 7;
+    this.friction = 0.95;
     this.lives = lives;
     this.directionY = 0;
     this.directionX = 0;

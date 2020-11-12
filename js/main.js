@@ -40,7 +40,7 @@ buildDom(`
 
   setTimeout(() => {
     document.querySelector("audio").play();
-    document.querySelector("audio").volume = 0.01;
+    document.querySelector("audio").volume = 0.1;
   },2000);
 
     document.body.style.backgroundImage = "none"
@@ -98,7 +98,7 @@ buildDom(`
             <audio src="sounds/la-brisa_1.mp3" loop></audio>
         </section>
         `);
-    document.querySelector("audio").volume = 0.04
+    document.querySelector("audio").volume = 0.1
     document.querySelector("audio").play()
     document.body.style.backgroundImage = "none"
     //document.querySelector(".game-screen").style.height = "790px";
@@ -114,7 +114,7 @@ buildDom(`
       if (event.code === "Space" && !game.pause){
         game.bulletOn = true;
         let audio = new Audio("sounds/007132157_prev.mp3");
-        audio.volume = 0.01;
+        audio.volume = 0.08;
         audio.play();
       }
     }
@@ -122,7 +122,7 @@ buildDom(`
       if (event.code === "KeyC" && !game.pause){
         game.doubleBulletOn = true;
         let audio = new Audio("sounds/008827459_prev.mp3");
-        audio.volume = 0.01;
+        audio.volume = 0.08;
         audio.play();
       }
     }
@@ -130,7 +130,7 @@ buildDom(`
       if (event.code === "KeyX" && !game.pause){
         game.weapon = true;
         let audio = new Audio("sounds/007132157_prev.mp3");
-        audio.volume = 0.01;
+        audio.volume = 0.08;
         audio.play();
       }
     }
